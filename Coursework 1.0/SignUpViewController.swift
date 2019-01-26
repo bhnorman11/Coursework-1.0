@@ -20,6 +20,16 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var Email: UITextField!
     @IBOutlet weak var Password: UITextField!
     
-
+    @IBAction func SignUp(_ sender: Any) {
+        Auth.auth().createUser(withEmail: Email.text!, password: Password.text!, completion: {(user, error) in
+            if error != nil{
+                print(error!)
+            }else{
+                print("Registration successful")
+            }
+        })
+        self.performSegue(withIdentifier: "SignUp", sender: self)
+    }
+    
 
 }

@@ -166,6 +166,9 @@
                                 <state key="normal" title="Signup">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="1Q6-A3-rCk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -174,7 +177,7 @@
                     <connections>
                         <outlet property="Email" destination="Q57-Ra-xhF" id="lpI-Ye-NI7"/>
                         <outlet property="Password" destination="n2Q-sg-iXa" id="tY4-JS-EKd"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="Bqd-EF-08x"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="SignUp" id="Bqd-EF-08x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLf-Oz-4ID" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -230,13 +233,18 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="36"/>
                                 <state key="normal" title="Login" backgroundImage="BlackBorder"/>
+                                <connections>
+                                    <action selector="Login:" destination="08C-fd-RkW" eventType="touchUpInside" id="FIp-hw-bX1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qcG-8M-2hW"/>
                     </view>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="fab-6f-05K"/>
+                        <outlet property="Email" destination="uJz-TE-3dM" id="DoI-UM-DNb"/>
+                        <outlet property="Password" destination="WZr-8B-Sry" id="W4b-Od-14L"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="Login" id="fab-6f-05K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YwT-xL-SpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -249,6 +257,6 @@
         <image name="Settings" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bqd-EF-08x"/>
+        <segue reference="fab-6f-05K"/>
     </inferredMetricsTieBreakers>
 </document>
