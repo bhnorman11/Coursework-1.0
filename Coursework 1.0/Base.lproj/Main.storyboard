@@ -101,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="288.8671875" y="815.625"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="NWq-Ws-UZV">
             <objects>
-                <viewController id="bDk-1J-EuT" sceneMemberID="viewController">
+                <viewController id="bDk-1J-EuT" customClass="SignUpViewController" customModule="Coursework_1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RdD-1r-asb">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,15 +171,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="AYz-4y-sya"/>
                     </view>
+                    <connections>
+                        <outlet property="Email" destination="Q57-Ra-xhF" id="lpI-Ye-NI7"/>
+                        <outlet property="Password" destination="n2Q-sg-iXa" id="tY4-JS-EKd"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="Bqd-EF-08x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLf-Oz-4ID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="996.67968749999989" y="815.625"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="CGc-iC-FF6">
             <objects>
-                <viewController id="08C-fd-RkW" sceneMemberID="viewController">
+                <viewController id="08C-fd-RkW" customClass="LoginViewController" customModule="Coursework_1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qKh-0f-1m1">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -243,4 +248,7 @@
         <image name="BlackBorder" width="640" height="428"/>
         <image name="Settings" width="250" height="250"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Bqd-EF-08x"/>
+    </inferredMetricsTieBreakers>
 </document>
