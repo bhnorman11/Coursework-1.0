@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B532F4EC21FCB60A00A78153 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B532F4EB21FCB60A00A78153 /* GoogleService-Info.plist */; };
 		B5CD3A4A21F1013000078B1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD3A4921F1013000078B1B /* AppDelegate.swift */; };
 		B5CD3A4C21F1013000078B1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD3A4B21F1013000078B1B /* ViewController.swift */; };
 		B5CD3A4F21F1013000078B1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5CD3A4D21F1013000078B1B /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B532F4EB21FCB60A00A78153 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5CD3A4621F1013000078B1B /* Coursework 1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coursework 1.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CD3A4921F1013000078B1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5CD3A4B21F1013000078B1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				B5CD3A5021F1013500078B1B /* Assets.xcassets */,
 				B5CD3A5221F1013500078B1B /* LaunchScreen.storyboard */,
 				B5CD3A5521F1013500078B1B /* Info.plist */,
+				B532F4EB21FCB60A00A78153 /* GoogleService-Info.plist */,
 			);
 			path = "Coursework 1.0";
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5CD3A5421F1013500078B1B /* LaunchScreen.storyboard in Resources */,
+				B532F4EC21FCB60A00A78153 /* GoogleService-Info.plist in Resources */,
 				B5CD3A5121F1013500078B1B /* Assets.xcassets in Resources */,
 				B5CD3A4F21F1013000078B1B /* Main.storyboard in Resources */,
 			);
