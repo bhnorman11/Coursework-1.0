@@ -57,4 +57,10 @@ class SignUpViewController: UIViewController {
         Student.alpha = 0.3
         Teacher.alpha = 1.0
     }
+    
+    
+    @IBAction func Back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
