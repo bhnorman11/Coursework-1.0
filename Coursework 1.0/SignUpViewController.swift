@@ -13,6 +13,9 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        peopleButtons.forEach { (button) in
+            button.isHidden = !button.isHidden
+        }
 
 
     }
@@ -31,5 +34,17 @@ class SignUpViewController: UIViewController {
         self.performSegue(withIdentifier: "SignUp", sender: self)
     }
     
-
+    
+    @IBOutlet var peopleButtons: [UIButton]!
+    
+    @IBAction func handleSelection(_ sender: Any) {
+        peopleButtons.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+            
+        }
+    }
+    
 }

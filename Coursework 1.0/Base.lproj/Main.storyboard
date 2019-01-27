@@ -116,22 +116,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Admin or student?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nan-2e-4dc">
-                                <rect key="frame" x="329" y="140" width="366" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="38"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oom-ZO-zkR">
-                                <rect key="frame" x="410" y="254" width="204" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q57-Ra-xhF">
-                                <rect key="frame" x="410" y="424" width="204" height="30"/>
+                                <rect key="frame" x="410" y="441" width="204" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -145,7 +131,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email Address" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhK-p0-Ydi">
-                                <rect key="frame" x="386" y="314" width="252" height="86"/>
+                                <rect key="frame" x="386" y="347" width="252" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="38"/>
                                 <nil key="textColor"/>
@@ -170,6 +156,32 @@
                                     <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="1Q6-A3-rCk"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="VCh-xu-9Oi">
+                                <rect key="frame" x="352" y="146" width="318" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONe-Ul-zrl">
+                                        <rect key="frame" x="0.0" y="0.0" width="318" height="60"/>
+                                        <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="38"/>
+                                        <state key="normal" title="Teacher or student?">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleSelection:" destination="bDk-1J-EuT" eventType="touchUpInside" id="ryc-i7-AoE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V25-yJ-Cp8">
+                                        <rect key="frame" x="0.0" y="75" width="318" height="47"/>
+                                        <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="28"/>
+                                        <state key="normal" title="Student"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5LE-i4-c7F">
+                                        <rect key="frame" x="0.0" y="137" width="318" height="47"/>
+                                        <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="28"/>
+                                        <state key="normal" title="Teacher"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="AYz-4y-sya"/>
@@ -177,6 +189,10 @@
                     <connections>
                         <outlet property="Email" destination="Q57-Ra-xhF" id="lpI-Ye-NI7"/>
                         <outlet property="Password" destination="n2Q-sg-iXa" id="tY4-JS-EKd"/>
+                        <outletCollection property="peopleButtons" destination="V25-yJ-Cp8" collectionClass="NSMutableArray" id="1Jn-AL-0y8"/>
+                        <outletCollection property="peopleButtons" destination="5LE-i4-c7F" collectionClass="NSMutableArray" id="Sy8-Hj-fyx"/>
+                        <outletCollection property="peopleButtons" destination="5LE-i4-c7F" collectionClass="NSMutableArray" id="olg-d4-Vdg"/>
+                        <outletCollection property="peopleButtons" destination="5LE-i4-c7F" collectionClass="NSMutableArray" id="8KM-Ye-5BA"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="SignUp" id="Bqd-EF-08x"/>
                     </connections>
                 </viewController>
@@ -265,6 +281,6 @@
         <image name="Settings" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fab-6f-05K"/>
+        <segue reference="Bqd-EF-08x"/>
     </inferredMetricsTieBreakers>
 </document>
