@@ -46,5 +46,15 @@ class SignUpViewController: UIViewController {
             
         }
     }
+    @IBOutlet weak var Student: UIButton!
+    @IBOutlet weak var Teacher: UIButton!
     
+    @IBAction func StudentSelect(_ sender: Any) {
+        Teacher.alpha = 0.3
+        Student.alpha = 1.0
+    }
+    @IBAction func TeacherSelect(_ sender: Any) {
+        Student.alpha = 0.3
+        Teacher.alpha = 1.0
+    }
 }

@@ -149,7 +149,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="36"/>
-                                <state key="normal" title="Signup">
+                                <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -157,7 +157,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="VCh-xu-9Oi">
-                                <rect key="frame" x="352" y="146" width="318" height="184"/>
+                                <rect key="frame" x="352" y="146" width="318" height="202"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONe-Ul-zrl">
@@ -171,14 +171,20 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V25-yJ-Cp8">
-                                        <rect key="frame" x="0.0" y="75" width="318" height="47"/>
-                                        <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="28"/>
+                                        <rect key="frame" x="0.0" y="75" width="318" height="56"/>
+                                        <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="35"/>
                                         <state key="normal" title="Student"/>
+                                        <connections>
+                                            <action selector="StudentSelect:" destination="bDk-1J-EuT" eventType="touchUpInside" id="N16-J5-vG9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5LE-i4-c7F">
-                                        <rect key="frame" x="0.0" y="137" width="318" height="47"/>
-                                        <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="28"/>
+                                        <rect key="frame" x="0.0" y="146" width="318" height="56"/>
+                                        <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="35"/>
                                         <state key="normal" title="Teacher"/>
+                                        <connections>
+                                            <action selector="TeacherSelect:" destination="bDk-1J-EuT" eventType="touchUpInside" id="Kik-EX-o2t"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -189,6 +195,8 @@
                     <connections>
                         <outlet property="Email" destination="Q57-Ra-xhF" id="lpI-Ye-NI7"/>
                         <outlet property="Password" destination="n2Q-sg-iXa" id="tY4-JS-EKd"/>
+                        <outlet property="Student" destination="V25-yJ-Cp8" id="RWm-79-GlU"/>
+                        <outlet property="Teacher" destination="5LE-i4-c7F" id="5kG-7y-Nwk"/>
                         <outletCollection property="peopleButtons" destination="V25-yJ-Cp8" collectionClass="NSMutableArray" id="1Jn-AL-0y8"/>
                         <outletCollection property="peopleButtons" destination="5LE-i4-c7F" collectionClass="NSMutableArray" id="Sy8-Hj-fyx"/>
                         <outletCollection property="peopleButtons" destination="5LE-i4-c7F" collectionClass="NSMutableArray" id="olg-d4-Vdg"/>
