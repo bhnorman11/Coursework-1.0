@@ -75,4 +75,10 @@ class AnswerQuestionsViewController: UIViewController {
         ThisMonth.alpha = 0.3
         ThisTerm.alpha = 1
     }
+    
+    @IBAction func Back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+
 }
