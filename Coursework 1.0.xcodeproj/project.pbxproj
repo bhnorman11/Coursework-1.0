@@ -11,6 +11,7 @@
 		B532F4EC21FCB60A00A78153 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B532F4EB21FCB60A00A78153 /* GoogleService-Info.plist */; };
 		B536244821FD12ED00CE166B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536244721FD12ED00CE166B /* LoginViewController.swift */; };
 		B536244A21FD12FD00CE166B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536244921FD12FD00CE166B /* SignUpViewController.swift */; };
+		B58959692202220700A9DA8A /* AnswerQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58959682202220700A9DA8A /* AnswerQuestionsViewController.swift */; };
 		B5CD3A4A21F1013000078B1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD3A4921F1013000078B1B /* AppDelegate.swift */; };
 		B5CD3A4C21F1013000078B1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD3A4B21F1013000078B1B /* ViewController.swift */; };
 		B5CD3A4F21F1013000078B1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5CD3A4D21F1013000078B1B /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		B532F4EB21FCB60A00A78153 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B536244721FD12ED00CE166B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B536244921FD12FD00CE166B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B58959682202220700A9DA8A /* AnswerQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerQuestionsViewController.swift; sourceTree = "<group>"; };
 		B5CD3A4621F1013000078B1B /* Coursework 1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coursework 1.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CD3A4921F1013000078B1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5CD3A4B21F1013000078B1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				B5CD3A4921F1013000078B1B /* AppDelegate.swift */,
 				B5CD3A4B21F1013000078B1B /* ViewController.swift */,
 				B5CD3A4D21F1013000078B1B /* Main.storyboard */,
+				B58959682202220700A9DA8A /* AnswerQuestionsViewController.swift */,
 				B536244721FD12ED00CE166B /* LoginViewController.swift */,
 				B536244921FD12FD00CE166B /* SignUpViewController.swift */,
 				B5CD3A5021F1013500078B1B /* Assets.xcassets */,
@@ -315,16 +318,26 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Coursework 1.0/Pods-Coursework 1.0-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +422,7 @@
 				B5CD3A4C21F1013000078B1B /* ViewController.swift in Sources */,
 				B536244A21FD12FD00CE166B /* SignUpViewController.swift in Sources */,
 				B5CD3A4A21F1013000078B1B /* AppDelegate.swift in Sources */,
+				B58959692202220700A9DA8A /* AnswerQuestionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

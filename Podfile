@@ -8,7 +8,7 @@ target 'Coursework 1.0' do
   # Pods for Coursework 1.0
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
-
+pod 'Firebase/Firestore'
 
 
   target 'Coursework 1.0Tests' do
