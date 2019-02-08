@@ -21,6 +21,23 @@ class ReportProblemViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBOutlet weak var Problem: UITextField!
+    
+    
+    let db = Firestore.firestore()
+    
+    @IBAction func sendData(_ sender: Any) {
+        db.collection("Reviews").document(Problem.text!).setData([
+            "Problem": Problem.text!
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+    }
     
     
 }
+

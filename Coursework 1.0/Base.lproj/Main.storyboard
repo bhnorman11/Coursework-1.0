@@ -103,12 +103,16 @@
                                 </state>
                                 <connections>
                                     <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="bRw-Uo-frA"/>
+                                    <action selector="sendData:" destination="NRu-5d-vkU" eventType="touchUpInside" id="Rz4-lz-ADz"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="aXX-Y6-Z9b"/>
                     </view>
+                    <connections>
+                        <outlet property="Problem" destination="Kkc-ad-cVz" id="Cdv-c9-2OW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9Q-bo-GU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
