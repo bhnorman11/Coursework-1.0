@@ -36,6 +36,17 @@ class AnswerQuestionsViewController: UIViewController {
     @IBOutlet weak var ThisMonth: UIButton!
     @IBOutlet weak var ThisTerm: UIButton!
     
+    func DateToday() -> String{
+        let dateToday = "\(NSDate())"
+        return dateToday
+    }
+    
+    func DateYesterday() -> String {
+        let yesterday = "\(Calendar.current.date(byAdding: .day, value: -1, to: Date())!)"
+        return yesterday
+        
+    }
+    
     @IBAction func TodaySelection(_ sender: Any) {
         Today.alpha = 1
         Yesterday.alpha = 0.3
