@@ -11,6 +11,8 @@
 		B532F4EC21FCB60A00A78153 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B532F4EB21FCB60A00A78153 /* GoogleService-Info.plist */; };
 		B536244821FD12ED00CE166B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536244721FD12ED00CE166B /* LoginViewController.swift */; };
 		B536244A21FD12FD00CE166B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536244921FD12FD00CE166B /* SignUpViewController.swift */; };
+		B58362092227567A000D4FBD /* StudentMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58362082227567A000D4FBD /* StudentMainViewController.swift */; };
+		B583620B22275689000D4FBD /* TeacherMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B583620A22275689000D4FBD /* TeacherMainViewController.swift */; };
 		B58959692202220700A9DA8A /* AnswerQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58959682202220700A9DA8A /* AnswerQuestionsViewController.swift */; };
 		B589596B22022B5A00A9DA8A /* AskQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589596A22022B5A00A9DA8A /* AskQuestionViewController.swift */; };
 		B589596D22022BE500A9DA8A /* MakeSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589596C22022BE500A9DA8A /* MakeSuggestionViewController.swift */; };
@@ -54,6 +56,8 @@
 		B532F4EB21FCB60A00A78153 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B536244721FD12ED00CE166B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B536244921FD12FD00CE166B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B58362082227567A000D4FBD /* StudentMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMainViewController.swift; sourceTree = "<group>"; };
+		B583620A22275689000D4FBD /* TeacherMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherMainViewController.swift; sourceTree = "<group>"; };
 		B58959682202220700A9DA8A /* AnswerQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerQuestionsViewController.swift; sourceTree = "<group>"; };
 		B589596A22022B5A00A9DA8A /* AskQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestionViewController.swift; sourceTree = "<group>"; };
 		B589596C22022BE500A9DA8A /* MakeSuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeSuggestionViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 				B5CD3A4921F1013000078B1B /* AppDelegate.swift */,
 				B5CD3A4B21F1013000078B1B /* ViewController.swift */,
 				B5CD3A4D21F1013000078B1B /* Main.storyboard */,
+				B58362082227567A000D4FBD /* StudentMainViewController.swift */,
+				B583620A22275689000D4FBD /* TeacherMainViewController.swift */,
 				B589597022022D0600A9DA8A /* ChooseReviewViewController.swift */,
 				B589596E22022CA500A9DA8A /* ReportProblemViewController.swift */,
 				B589596C22022BE500A9DA8A /* MakeSuggestionViewController.swift */,
@@ -432,6 +438,7 @@
 			files = (
 				B589596F22022CA500A9DA8A /* ReportProblemViewController.swift in Sources */,
 				B536244821FD12ED00CE166B /* LoginViewController.swift in Sources */,
+				B583620B22275689000D4FBD /* TeacherMainViewController.swift in Sources */,
 				B5CD3A4C21F1013000078B1B /* ViewController.swift in Sources */,
 				B589597122022D0600A9DA8A /* ChooseReviewViewController.swift in Sources */,
 				B589596B22022B5A00A9DA8A /* AskQuestionViewController.swift in Sources */,
@@ -439,6 +446,7 @@
 				B589596D22022BE500A9DA8A /* MakeSuggestionViewController.swift in Sources */,
 				B5CD3A4A21F1013000078B1B /* AppDelegate.swift in Sources */,
 				B58959692202220700A9DA8A /* AnswerQuestionsViewController.swift in Sources */,
+				B58362092227567A000D4FBD /* StudentMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
