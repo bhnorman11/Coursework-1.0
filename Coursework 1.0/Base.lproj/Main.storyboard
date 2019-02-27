@@ -535,7 +535,7 @@
                                 </state>
                                 <connections>
                                     <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="1Q6-A3-rCk"/>
-                                    <segue destination="WX2-GC-dmK" kind="show" id="yd0-pM-eZX"/>
+                                    <segue destination="WX2-GC-dmK" kind="show" identifier="TeacherSignUp" id="yd0-pM-eZX"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BackArrow" translatesAutoresizingMaskIntoConstraints="NO" id="CZw-r7-Jem">
@@ -596,7 +596,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q57-Ra-xhF">
                                 <rect key="frame" x="162" y="430" width="204" height="30"/>
@@ -661,7 +661,11 @@
                         <viewLayoutGuide key="safeArea" id="AYz-4y-sya"/>
                     </view>
                     <connections>
+                        <outlet property="Block" destination="u1q-2n-s47" id="2Xp-eG-6jn"/>
+                        <outlet property="BlockLabel" destination="YLz-BR-JKo" id="UGo-W7-ok7"/>
                         <outlet property="Email" destination="Q57-Ra-xhF" id="lpI-Ye-NI7"/>
+                        <outlet property="FirstName" destination="1hD-RR-RE0" id="HGu-bG-k0X"/>
+                        <outlet property="LastName" destination="rUO-Y7-G4O" id="oSc-Ni-ecr"/>
                         <outlet property="Password" destination="n2Q-sg-iXa" id="tY4-JS-EKd"/>
                         <outlet property="Student" destination="V25-yJ-Cp8" id="RWm-79-GlU"/>
                         <outlet property="Teacher" destination="5LE-i4-c7F" id="5kG-7y-Nwk"/>
@@ -669,7 +673,7 @@
                         <outletCollection property="peopleButtons" destination="5LE-i4-c7F" collectionClass="NSMutableArray" id="Sy8-Hj-fyx"/>
                         <outletCollection property="peopleButtons" destination="5LE-i4-c7F" collectionClass="NSMutableArray" id="olg-d4-Vdg"/>
                         <outletCollection property="peopleButtons" destination="5LE-i4-c7F" collectionClass="NSMutableArray" id="8KM-Ye-5BA"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="SignUp" id="Bqd-EF-08x"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="StudentSignUp" id="Bqd-EF-08x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLf-Oz-4ID" userLabel="First Responder" sceneMemberID="firstResponder"/>

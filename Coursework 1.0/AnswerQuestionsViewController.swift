@@ -13,12 +13,12 @@ class AnswerQuestionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         TimesButtons.forEach { (button) in
-            button.isHidden = !button.isHidden
+            button.isHidden = !button.isHidden // hides all the different time buttons when view loads
         }
 
     }
     
-    @IBAction func HandleSelection(_ sender: Any) {
+    @IBAction func HandleSelection(_ sender: Any) { // used to display time period buttons in stack view with nice animation
         TimesButtons.forEach { (button) in
             UIView.animate(withDuration: 0.3, animations: {
                 button.isHidden = !button.isHidden
@@ -36,19 +36,19 @@ class AnswerQuestionsViewController: UIViewController {
     @IBOutlet weak var ThisMonth: UIButton!
     @IBOutlet weak var ThisTerm: UIButton!
     
-    func DateToday() -> String{
+    func DateToday() -> String{ // gets todays date and time
         let dateToday = "\(NSDate())"
         return dateToday
     }
     
-    func DateYesterday() -> String {
+    func DateYesterday() -> String { // gets yesterdays date and time
         let yesterday = "\(Calendar.current.date(byAdding: .day, value: -1, to: Date())!)"
         return yesterday
         
     }
     
     @IBAction func TodaySelection(_ sender: Any) {
-        Today.alpha = 1
+        Today.alpha = 1 // changes the alpha (transparency setting) when one of the options is selected
         Yesterday.alpha = 0.3
         ThisWeek.alpha = 0.3
         ThisMonth.alpha = 0.3
@@ -87,7 +87,7 @@ class AnswerQuestionsViewController: UIViewController {
         ThisTerm.alpha = 1
     }
     
-    @IBAction func Back(_ sender: Any) {
+    @IBAction func Back(_ sender: Any) { // dismisses the view
         self.dismiss(animated: true, completion: nil)
     }
     
