@@ -35,21 +35,20 @@ class SignUpViewController: UIViewController {
                 if error != nil{
                     print(error!)
                 }else{
-                    print("Registration successful")
+                    self.db.collection("Users").document(self.Email.text!).setData([
+                        "Student": true,
+                        "First Name": self.FirstName.text!,
+                        "Second Name": self.LastName.text!,
+                        "Block": self.Block.text!])
+                    { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+                            print("Document successfully updated")
+                        }
+                    }
                 }
             })
-            self.db.collection("Users").document(Email.text!).setData([
-                "Student": true,
-                "First Name": self.FirstName.text!,
-                "Second Name": self.LastName.text!,
-                "Block": self.Block.text!])
-            { err in
-                if let err = err {
-                    print("Error updating document: \(err)")
-                } else {
-                    print("Document successfully updated")
-                }
-            }
             self.performSegue(withIdentifier: "StudentSignUp", sender: self)
         }
         else if Student.alpha != 1.0 {
@@ -57,20 +56,19 @@ class SignUpViewController: UIViewController {
                 if error != nil{
                     print(error!)
                 }else{
-                    print("Registration successful")
+                    self.db.collection("Users").document(self.Email.text!).setData([
+                        "Student": false,
+                        "First Name": self.FirstName.text!,
+                        "Last Name": self.LastName.text!])
+                    { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+                            print("Document successfully updated")
+                        }
+                    }
                 }
             })
-            self.db.collection("Users").document(Email.text!).setData([
-                "Student": false,
-                "First Name": self.FirstName.text!,
-                "Last Name": self.LastName.text!])
-            { err in
-                if let err = err {
-                    print("Error updating document: \(err)")
-                } else {
-                    print("Document successfully updated")
-                }
-            }
             self.performSegue(withIdentifier: "TeacherSignUp", sender: self)
         }
         
