@@ -515,7 +515,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDJ-gD-8gc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="288.8671875" y="815.625"/>
+            <point key="canvasLocation" x="289" y="67"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="NWq-Ws-UZV">
@@ -759,12 +759,13 @@
                         <outlet property="Email" destination="uJz-TE-3dM" id="DoI-UM-DNb"/>
                         <outlet property="Error" destination="W7W-gF-362" id="0V3-ab-GXr"/>
                         <outlet property="Password" destination="WZr-8B-Sry" id="W4b-Od-14L"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="Login" id="fab-6f-05K"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="StudentMain" id="fab-6f-05K"/>
+                        <segue destination="WX2-GC-dmK" kind="show" identifier="TeacherMain" id="NUl-NU-43j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YwT-xL-SpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="288.8671875" y="1529.6875"/>
+            <point key="canvasLocation" x="289" y="815"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yf3-vA-uzh">
@@ -826,6 +827,7 @@
         <image name="Settings" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bqd-EF-08x"/>
+        <segue reference="NUl-NU-43j"/>
+        <segue reference="fab-6f-05K"/>
     </inferredMetricsTieBreakers>
 </document>
