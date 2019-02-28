@@ -14,6 +14,7 @@
 		B58362092227567A000D4FBD /* StudentMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58362082227567A000D4FBD /* StudentMainViewController.swift */; };
 		B583620B22275689000D4FBD /* TeacherMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B583620A22275689000D4FBD /* TeacherMainViewController.swift */; };
 		B583620D2227E6A3000D4FBD /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B583620C2227E6A3000D4FBD /* CustomSegue.swift */; };
+		B583620F222842A4000D4FBD /* ViewFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B583620E222842A4000D4FBD /* ViewFeedbackViewController.swift */; };
 		B58959692202220700A9DA8A /* AnswerQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58959682202220700A9DA8A /* AnswerQuestionsViewController.swift */; };
 		B589596B22022B5A00A9DA8A /* AskQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589596A22022B5A00A9DA8A /* AskQuestionViewController.swift */; };
 		B589596D22022BE500A9DA8A /* MakeSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589596C22022BE500A9DA8A /* MakeSuggestionViewController.swift */; };
@@ -60,6 +61,7 @@
 		B58362082227567A000D4FBD /* StudentMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMainViewController.swift; sourceTree = "<group>"; };
 		B583620A22275689000D4FBD /* TeacherMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherMainViewController.swift; sourceTree = "<group>"; };
 		B583620C2227E6A3000D4FBD /* CustomSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
+		B583620E222842A4000D4FBD /* ViewFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFeedbackViewController.swift; sourceTree = "<group>"; };
 		B58959682202220700A9DA8A /* AnswerQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerQuestionsViewController.swift; sourceTree = "<group>"; };
 		B589596A22022B5A00A9DA8A /* AskQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestionViewController.swift; sourceTree = "<group>"; };
 		B589596C22022BE500A9DA8A /* MakeSuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeSuggestionViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				B5CD3A4921F1013000078B1B /* AppDelegate.swift */,
 				B5CD3A4B21F1013000078B1B /* ViewController.swift */,
 				B5CD3A4D21F1013000078B1B /* Main.storyboard */,
+				B583620E222842A4000D4FBD /* ViewFeedbackViewController.swift */,
 				B583620C2227E6A3000D4FBD /* CustomSegue.swift */,
 				B58362082227567A000D4FBD /* StudentMainViewController.swift */,
 				B583620A22275689000D4FBD /* TeacherMainViewController.swift */,
@@ -445,6 +448,7 @@
 				B5CD3A4C21F1013000078B1B /* ViewController.swift in Sources */,
 				B583620D2227E6A3000D4FBD /* CustomSegue.swift in Sources */,
 				B589597122022D0600A9DA8A /* ChooseReviewViewController.swift in Sources */,
+				B583620F222842A4000D4FBD /* ViewFeedbackViewController.swift in Sources */,
 				B589596B22022B5A00A9DA8A /* AskQuestionViewController.swift in Sources */,
 				B536244A21FD12FD00CE166B /* SignUpViewController.swift in Sources */,
 				B589596D22022BE500A9DA8A /* MakeSuggestionViewController.swift in Sources */,
