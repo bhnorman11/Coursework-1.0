@@ -125,17 +125,25 @@
                                     <action selector="sendData:" destination="NRu-5d-vkU" eventType="touchUpInside" id="Rz4-lz-ADz"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Problem Reported!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLE-Ff-0Ml">
+                                <rect key="frame" x="452" y="642" width="208" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="aXX-Y6-Z9b"/>
                     </view>
                     <connections>
                         <outlet property="Problem" destination="Kkc-ad-cVz" id="Cdv-c9-2OW"/>
+                        <outlet property="Successful" destination="CLE-Ff-0Ml" id="Obd-uq-NJb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9Q-bo-GU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1918" y="652"/>
+            <point key="canvasLocation" x="1917.6258992805756" y="651.79856115107918"/>
         </scene>
         <!--Make Suggestion View Controller-->
         <scene sceneID="diI-Mh-tos">
@@ -183,11 +191,19 @@
                                     <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="dgd-lL-oV1"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suggestion Made!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGD-Dy-Kak">
+                                <rect key="frame" x="452" y="640" width="208" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ao6-nu-t95"/>
                     </view>
                     <connections>
+                        <outlet property="Successful" destination="HGD-Dy-Kak" id="9hb-Fp-mTd"/>
                         <outlet property="Suggestion" destination="lZE-Qm-kbA" id="32J-1V-Lit"/>
                     </connections>
                 </viewController>
@@ -241,17 +257,25 @@
                                     <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="3Tp-95-teR"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question Asked!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xr-pM-cgW">
+                                <rect key="frame" x="462" y="636" width="188" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bFu-p7-c4n"/>
                     </view>
                     <connections>
                         <outlet property="Question" destination="t9Z-LC-Hjp" id="0yX-Le-Nq3"/>
+                        <outlet property="Successful" destination="6Xr-pM-cgW" id="YyC-4h-L1m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRb-Av-XLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848" y="1876"/>
+            <point key="canvasLocation" x="2847.8417266187053" y="1875.5395683453239"/>
         </scene>
         <!--Choose Review View Controller-->
         <scene sceneID="r8o-sD-Y70">
@@ -854,9 +878,9 @@
         <image name="Settings" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CjY-Pa-OIG"/>
-        <segue reference="j2t-L4-uQr"/>
+        <segue reference="Ehh-GJ-Piu"/>
+        <segue reference="eSC-6g-mhM"/>
         <segue reference="IBt-5P-Erj"/>
-        <segue reference="p7l-va-h9w"/>
+        <segue reference="c25-Jg-aE3"/>
     </inferredMetricsTieBreakers>
 </document>

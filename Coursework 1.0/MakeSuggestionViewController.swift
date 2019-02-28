@@ -14,13 +14,14 @@ class MakeSuggestionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Successful.isHidden = true
     }
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     
     @IBOutlet weak var Suggestion: UITextField!
+    @IBOutlet weak var Successful: UILabel!
     
     @IBAction func Send(_ sender: Any) {
         let email = user?.email
@@ -31,6 +32,7 @@ class MakeSuggestionViewController: UIViewController {
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
+                self.Successful.isHidden = false
             }
         }
     }

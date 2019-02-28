@@ -14,10 +14,12 @@ class AskQuestionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Successful.isHidden = true
 
     }
     
     @IBOutlet weak var Question: UITextField!
+    @IBOutlet weak var Successful: UILabel!
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -31,6 +33,7 @@ class AskQuestionViewController: UIViewController {
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
+                self.Successful.isHidden = false
             }
         }
     }

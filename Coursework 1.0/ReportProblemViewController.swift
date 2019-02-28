@@ -14,10 +14,11 @@ class ReportProblemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Successful.isHidden = true
     }
     
-
+    @IBOutlet weak var Successful: UILabel!
+    
     
     @IBOutlet weak var Problem: UITextField!
     
@@ -33,6 +34,7 @@ class ReportProblemViewController: UIViewController {
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
+                self.Successful.isHidden = false
             }
         }
     }
