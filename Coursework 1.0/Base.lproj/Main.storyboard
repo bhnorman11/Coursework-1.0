@@ -179,6 +179,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="Send:" destination="gHl-aG-MdB" eventType="touchUpInside" id="Nzn-VC-D4I"/>
                                     <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="dgd-lL-oV1"/>
                                 </connections>
                             </button>
@@ -186,6 +187,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ao6-nu-t95"/>
                     </view>
+                    <connections>
+                        <outlet property="Suggestion" destination="lZE-Qm-kbA" id="32J-1V-Lit"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Y9-NI-2ec" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -233,6 +237,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="Send:" destination="f12-6i-YyS" eventType="touchUpInside" id="KMA-Cu-uIh"/>
                                     <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="3Tp-95-teR"/>
                                 </connections>
                             </button>
@@ -240,6 +245,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bFu-p7-c4n"/>
                     </view>
+                    <connections>
+                        <outlet property="Question" destination="t9Z-LC-Hjp" id="0yX-Le-Nq3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRb-Av-XLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -847,8 +855,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="CjY-Pa-OIG"/>
-        <segue reference="ZRE-Qk-8cQ"/>
-        <segue reference="ZQD-aE-LRs"/>
+        <segue reference="j2t-L4-uQr"/>
+        <segue reference="IBt-5P-Erj"/>
         <segue reference="p7l-va-h9w"/>
     </inferredMetricsTieBreakers>
 </document>

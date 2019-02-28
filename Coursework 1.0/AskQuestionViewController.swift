@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class AskQuestionViewController: UIViewController {
 
@@ -15,6 +17,23 @@ class AskQuestionViewController: UIViewController {
 
     }
     
-
+    @IBOutlet weak var Question: UITextField!
+    
+    let db = Firestore.firestore()
+    let user = Auth.auth().currentUser
+    
+    @IBAction func Send(_ sender: Any) {
+        let email = user?.email
+        db.collection("Questions").document(email!).setData([
+            "Question": Question.text!
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+    }
+    
     
 }

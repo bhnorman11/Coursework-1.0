@@ -16,6 +16,24 @@ class MakeSuggestionViewController: UIViewController {
         super.viewDidLoad()
 
     }
-
+    
+    let db = Firestore.firestore()
+    let user = Auth.auth().currentUser
+    
+    @IBOutlet weak var Suggestion: UITextField!
+    
+    @IBAction func Send(_ sender: Any) {
+        let email = user?.email
+        db.collection("Suggestions").document(email!).setData([
+            "Suggestion": Suggestion.text!
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+    }
+    
 
 }
