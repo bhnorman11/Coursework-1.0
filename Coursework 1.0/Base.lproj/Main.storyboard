@@ -53,7 +53,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qLg-e4-JDZ" kind="show" id="udO-A5-ftv"/>
+                                    <segue destination="qLg-e4-JDZ" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="ZQD-aE-LRs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH5-Nc-n5w">
@@ -65,9 +65,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="Logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pCh-sf-D5k"/>
+                                    <action selector="Logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhG-JY-nBW"/>
                                     <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="fI2-sK-TxY"/>
-                                    <segue destination="lUi-aT-Bjc" kind="show" identifier="StudentLogout" id="HTF-a1-vVm"/>
+                                    <segue destination="lUi-aT-Bjc" kind="custom" identifier="StudentLogout" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="qvE-qd-bJS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -77,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997" y="1529"/>
+            <point key="canvasLocation" x="1102" y="1491"/>
         </scene>
         <!--Report Problem View Controller-->
         <scene sceneID="F7d-k8-2nB">
@@ -95,9 +95,7 @@
                                 <rect key="frame" x="20" y="20" width="63" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="Back:" destination="NRu-5d-vkU" eventType="touchUpInside" id="N6D-tc-jhY"/>
-                                    <action selector="Back:" destination="A2m-ZV-5Kc" eventType="touchUpInside" id="YMz-4g-JP8"/>
-                                    <action selector="Back:" destination="08C-fd-RkW" eventType="touchUpInside" id="xI9-zY-ngc"/>
+                                    <segue destination="qLg-e4-JDZ" kind="custom" customClass="UnwindScaleSegue" customModule="Coursework_1_0" customModuleProvider="target" id="i8e-Wr-0Sr"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Report a problem:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUh-ql-Cew">
@@ -137,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9Q-bo-GU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1664.6484375" y="815.625"/>
+            <point key="canvasLocation" x="1918" y="652"/>
         </scene>
         <!--Make Suggestion View Controller-->
         <scene sceneID="diI-Mh-tos">
@@ -155,9 +153,7 @@
                                 <rect key="frame" x="20" y="20" width="63" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="Back:" destination="08C-fd-RkW" eventType="touchUpInside" id="0an-xm-B78"/>
-                                    <action selector="Back:" destination="gHl-aG-MdB" eventType="touchUpInside" id="Rry-rU-UGz"/>
-                                    <action selector="Back:" destination="A2m-ZV-5Kc" eventType="touchUpInside" id="xsl-YP-IgM"/>
+                                    <segue destination="qLg-e4-JDZ" kind="custom" customClass="UnwindScaleSegue" customModule="Coursework_1_0" customModuleProvider="target" id="mzu-gR-Mll"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Give your teacher a suggestion:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqh-Gw-S9R">
@@ -193,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Y9-NI-2ec" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2457" y="1171"/>
+            <point key="canvasLocation" x="2827" y="1102"/>
         </scene>
         <!--Ask Question View Controller-->
         <scene sceneID="v8a-XZ-MRP">
@@ -211,9 +207,7 @@
                                 <rect key="frame" x="20" y="20" width="63" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="Back:" destination="A2m-ZV-5Kc" eventType="touchUpInside" id="Rlt-dh-f37"/>
-                                    <action selector="Back:" destination="f12-6i-YyS" eventType="touchUpInside" id="j8w-vm-ZaH"/>
-                                    <action selector="Back:" destination="08C-fd-RkW" eventType="touchUpInside" id="uEq-k3-jry"/>
+                                    <segue destination="qLg-e4-JDZ" kind="custom" customClass="UnwindScaleSegue" customModule="Coursework_1_0" customModuleProvider="target" id="IBt-5P-Erj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ask your teacher a question:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdG-C2-RVU">
@@ -249,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRb-Av-XLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2456.8359375" y="1854.6875"/>
+            <point key="canvasLocation" x="2848" y="1876"/>
         </scene>
         <!--Choose Review View Controller-->
         <scene sceneID="r8o-sD-Y70">
@@ -268,7 +262,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gHl-aG-MdB" kind="show" id="Jp4-xw-ptd"/>
+                                    <segue destination="gHl-aG-MdB" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="glR-cm-wCG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="AF0-q3-848">
@@ -280,7 +274,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="A2m-ZV-5Kc" kind="show" id="Fn3-f4-f5S"/>
+                                    <segue destination="A2m-ZV-5Kc" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="LGJ-4b-5v4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ZkW-96-Jtf">
@@ -292,7 +286,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="NRu-5d-vkU" kind="show" id="Q93-cM-Txq"/>
+                                    <segue destination="NRu-5d-vkU" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="e0m-sI-EwA"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BackArrow" translatesAutoresizingMaskIntoConstraints="NO" id="R8H-gk-Ca5">
@@ -303,10 +297,7 @@
                                 <rect key="frame" x="20" y="20" width="63" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="Back:" destination="08C-fd-RkW" eventType="touchUpInside" id="CvA-9g-vx0"/>
-                                    <action selector="Back:" destination="qLg-e4-JDZ" eventType="touchUpInside" id="YWq-Pk-6Ss"/>
-                                    <action selector="Back:" destination="NRu-5d-vkU" eventType="touchUpInside" id="jkD-oj-1hK"/>
-                                    <action selector="Back:" destination="A2m-ZV-5Kc" eventType="touchUpInside" id="voW-6e-3AK"/>
+                                    <segue destination="4Pa-fT-zuS" kind="unwind" customClass="UnwindScaleSegue" customModule="Coursework_1_0" customModuleProvider="target" unwindAction="prepareforUnwindWithSegue:" id="OnB-2k-bme"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zH-5x-Pox">
@@ -318,7 +309,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="f12-6i-YyS" kind="show" id="rz8-sl-utb"/>
+                                    <segue destination="f12-6i-YyS" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="tfG-uB-GiH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -327,8 +318,9 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGh-9c-o1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4Pa-fT-zuS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1664.6484375" y="1529.6875"/>
+            <point key="canvasLocation" x="1918" y="1491"/>
         </scene>
         <!--Answer Questions View Controller-->
         <scene sceneID="CSA-YD-Bkk">
@@ -448,8 +440,7 @@
                                 <rect key="frame" x="20" y="20" width="63" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="Back:" destination="A2m-ZV-5Kc" eventType="touchUpInside" id="Zxc-i3-V0H"/>
-                                    <action selector="Back:" destination="08C-fd-RkW" eventType="touchUpInside" id="yat-tq-mK8"/>
+                                    <segue destination="qLg-e4-JDZ" kind="custom" customClass="UnwindScaleSegue" customModule="Coursework_1_0" customModuleProvider="target" id="TuV-Da-coh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mtu-z6-CkA">
@@ -483,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Mi-TZ-RM0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1664.6484375" y="2232.8125"/>
+            <point key="canvasLocation" x="1918" y="2368"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mjI-P3-qII">
@@ -500,7 +491,7 @@
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="36"/>
                                 <state key="normal" title="Login" backgroundImage="BlackBorder"/>
                                 <connections>
-                                    <segue destination="08C-fd-RkW" kind="show" id="sk6-By-Ktw"/>
+                                    <segue destination="08C-fd-RkW" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="Kfe-OV-qa4"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Review my Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sh5-iz-tmf">
@@ -519,7 +510,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="bDk-1J-EuT" kind="show" id="s4X-VU-W3R"/>
+                                    <segue destination="bDk-1J-EuT" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="cxI-bZ-goC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -529,7 +520,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDJ-gD-8gc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="289" y="67"/>
+            <point key="canvasLocation" x="303" y="-229"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="NWq-Ws-UZV">
@@ -549,7 +540,6 @@
                                 </state>
                                 <connections>
                                     <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="1Q6-A3-rCk"/>
-                                    <segue destination="WX2-GC-dmK" kind="show" identifier="TeacherSignUp" id="yd0-pM-eZX"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BackArrow" translatesAutoresizingMaskIntoConstraints="NO" id="CZw-r7-Jem">
@@ -560,7 +550,7 @@
                                 <rect key="frame" x="0.0" y="15" width="73" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="Back:" destination="bDk-1J-EuT" eventType="touchUpInside" id="vE3-y3-dRn"/>
+                                    <segue destination="lUi-aT-Bjc" kind="custom" customClass="UnwindScaleSegue" customModule="Coursework_1_0" customModuleProvider="target" id="ZRE-Qk-8cQ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First  Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndX-KS-ZxW">
@@ -687,12 +677,13 @@
                         <outletCollection property="peopleButtons" destination="5LE-i4-c7F" collectionClass="NSMutableArray" id="Sy8-Hj-fyx"/>
                         <outletCollection property="peopleButtons" destination="5LE-i4-c7F" collectionClass="NSMutableArray" id="olg-d4-Vdg"/>
                         <outletCollection property="peopleButtons" destination="5LE-i4-c7F" collectionClass="NSMutableArray" id="8KM-Ye-5BA"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="StudentSignUp" id="Bqd-EF-08x"/>
+                        <segue destination="WX2-GC-dmK" kind="custom" identifier="TeacherSignUp" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="CjY-Pa-OIG"/>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="StudentSignUp" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="p7l-va-h9w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLf-Oz-4ID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996.58273381294964" y="815.10791366906483"/>
+            <point key="canvasLocation" x="1102" y="652"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="CGc-iC-FF6">
@@ -752,7 +743,7 @@
                                 <rect key="frame" x="0.0" y="20" width="63" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="Back:" destination="08C-fd-RkW" eventType="touchUpInside" id="6cE-Tr-aWo"/>
+                                    <segue destination="lUi-aT-Bjc" kind="custom" customClass="UnwindScaleSegue" customModule="Coursework_1_0" customModuleProvider="target" id="eSC-6g-mhM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVb-3Z-ngv">
@@ -773,13 +764,13 @@
                         <outlet property="Email" destination="uJz-TE-3dM" id="DoI-UM-DNb"/>
                         <outlet property="Error" destination="W7W-gF-362" id="0V3-ab-GXr"/>
                         <outlet property="Password" destination="WZr-8B-Sry" id="W4b-Od-14L"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="StudentMain" id="fab-6f-05K"/>
-                        <segue destination="WX2-GC-dmK" kind="show" identifier="TeacherMain" id="NUl-NU-43j"/>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="StudentMain" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="c25-Jg-aE3"/>
+                        <segue destination="WX2-GC-dmK" kind="custom" identifier="TeacherMain" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="Ehh-GJ-Piu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YwT-xL-SpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="289" y="815"/>
+            <point key="canvasLocation" x="285" y="652"/>
         </scene>
         <!--Teacher Main View Controller-->
         <scene sceneID="yf3-vA-uzh">
@@ -825,9 +816,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="Logout:" destination="WX2-GC-dmK" eventType="touchUpInside" id="RFM-iH-bL7"/>
+                                    <action selector="Logout:" destination="WX2-GC-dmK" eventType="touchUpInside" id="30V-49-CK0"/>
                                     <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="O1q-6x-dzL"/>
-                                    <segue destination="lUi-aT-Bjc" kind="show" identifier="TeacherLogout" id="A2M-pT-hML"/>
+                                    <segue destination="lUi-aT-Bjc" kind="custom" identifier="TeacherLogout" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="j2t-L4-uQr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjR-RQ-yzU" userLabel="ReviewLessonsButton">
@@ -846,7 +837,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CKY-tr-41l" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996.58273381294964" y="66.906474820143885"/>
+            <point key="canvasLocation" x="1102" y="-229"/>
         </scene>
     </scenes>
     <resources>
@@ -855,8 +846,9 @@
         <image name="Settings" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NUl-NU-43j"/>
-        <segue reference="HTF-a1-vVm"/>
-        <segue reference="fab-6f-05K"/>
+        <segue reference="CjY-Pa-OIG"/>
+        <segue reference="ZRE-Qk-8cQ"/>
+        <segue reference="ZQD-aE-LRs"/>
+        <segue reference="p7l-va-h9w"/>
     </inferredMetricsTieBreakers>
 </document>

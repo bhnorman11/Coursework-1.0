@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import Firebase
 
 class ReportProblemViewController: UIViewController {
 
@@ -17,17 +18,15 @@ class ReportProblemViewController: UIViewController {
     }
     
 
-    @IBAction func Back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
     
     @IBOutlet weak var Problem: UITextField!
     
-    
+    let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     
     @IBAction func sendData(_ sender: Any) {
-        db.collection("Reviews").document(Problem.text!).setData([
+        let email = user?.email
+        db.collection("Problems").document(email!).setData([
             "Problem": Problem.text!
         ]) { err in
             if let err = err {

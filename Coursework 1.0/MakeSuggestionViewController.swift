@@ -7,17 +7,15 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class MakeSuggestionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
 
-    }
-    
-    @IBAction func Back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
 
 }

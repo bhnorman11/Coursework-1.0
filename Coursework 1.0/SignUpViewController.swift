@@ -18,8 +18,11 @@ class SignUpViewController: UIViewController {
         peopleButtons.forEach { (button) in
             button.isHidden = !button.isHidden
         }
-
-
+        Email.text = ""
+        Password.text = ""
+        FirstName.text = ""
+        LastName.text = ""
+        Block.text = ""
     }
     
     @IBOutlet weak var BlockLabel: UILabel!
@@ -105,8 +108,5 @@ class SignUpViewController: UIViewController {
     }
     
     
-    @IBAction func Back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
     
 }

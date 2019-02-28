@@ -16,7 +16,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Error.isHidden = true
-
+        Email.text = ""
+        Password.text = ""
 
     }
     
@@ -54,10 +55,6 @@ class LoginViewController: UIViewController {
                 }
                 
             }
-    }
-    
-    @IBAction func Back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
     }
     
     

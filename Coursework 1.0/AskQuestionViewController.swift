@@ -15,8 +15,6 @@ class AskQuestionViewController: UIViewController {
 
     }
     
-    @IBAction func Back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+
     
 }

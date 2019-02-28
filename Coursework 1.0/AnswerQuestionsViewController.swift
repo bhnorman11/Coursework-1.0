@@ -87,9 +87,5 @@ class AnswerQuestionsViewController: UIViewController {
         ThisTerm.alpha = 1
     }
     
-    @IBAction func Back(_ sender: Any) { // dismisses the view
-        self.dismiss(animated: true, completion: nil)
-    }
-    
 
 }
