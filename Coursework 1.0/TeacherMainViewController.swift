@@ -55,9 +55,9 @@ class TeacherMainViewController: UIViewController {
     }
     
     @IBAction func cancelLogout(_ sender: Any) {
+        animateOutLogout()
         VisualEffectView.isUserInteractionEnabled = false
         self.VisualEffectView.isHidden = false
-        animateOutLogout()
     }
     
     
