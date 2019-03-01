@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import Firebase
 
 class AnswerQuestionsViewController: UIViewController {
 
@@ -15,6 +17,7 @@ class AnswerQuestionsViewController: UIViewController {
         TimesButtons.forEach { (button) in
             button.isHidden = !button.isHidden // hides all the different time buttons when view loads
         }
+        Successful.isHidden = true
 
     }
     
@@ -85,6 +88,32 @@ class AnswerQuestionsViewController: UIViewController {
         ThisWeek.alpha = 0.3
         ThisMonth.alpha = 0.3
         ThisTerm.alpha = 1
+    }
+    
+    @IBOutlet weak var QuestionOne: UITextField!
+    @IBOutlet weak var QuestionTwo: UITextField!
+    @IBOutlet weak var QuestionThree: UITextField!
+    @IBOutlet weak var Successful: UILabel!
+    
+    
+    let db = Firestore.firestore()
+    let user = Auth.auth().currentUser
+    
+    
+    @IBAction func Send(_ sender: Any) {
+        let email = user?.email
+        db.collection("Answers").document(email!).setData([
+            "Answer 1": QuestionOne.text!,
+            "Answer 2": QuestionTwo.text!,
+            "Answer 3": QuestionThree.text!
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+                self.Successful.isHidden = false
+            }
+        }
     }
     
 
