@@ -1093,9 +1093,23 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rbc-A0-neo">
-                                <rect key="frame" x="483" y="404" width="445" height="315"/>
+                                <rect key="frame" x="483" y="425" width="445" height="294"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="studentCell" id="Ekx-1l-OGu">
+                                        <rect key="frame" x="0.0" y="28" width="445" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ekx-1l-OGu" id="wmj-6q-bzU">
+                                            <rect key="frame" x="0.0" y="0.0" width="445" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TBC-j8-fPl" id="iZa-o2-UP0"/>
+                                    <outlet property="delegate" destination="TBC-j8-fPl" id="V9q-cV-BRt"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oj-mG-hWl">
                                 <rect key="frame" x="69" y="546" width="59" height="50"/>
@@ -1111,13 +1125,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Student Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1c-LP-F7d">
-                                <rect key="frame" x="589" y="153" width="345" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="537-X2-Mj0">
                                 <rect key="frame" x="589" y="230" width="243" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1157,6 +1164,20 @@
                                     <segue destination="lUi-aT-Bjc" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="Xox-8w-OAi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Students" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fht-NB-cSt">
+                                <rect key="frame" x="622" y="381" width="166" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Student Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1c-LP-F7d">
+                                <rect key="frame" x="575" y="153" width="266" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="r7X-nJ-aM4"/>
@@ -1164,8 +1185,9 @@
                     <connections>
                         <outlet property="Block" destination="0Zn-Jh-flc" id="csC-jO-nsA"/>
                         <outlet property="Set" destination="VSW-na-yfF" id="SCc-vf-fJK"/>
-                        <outlet property="StudentName" destination="537-X2-Mj0" id="Tck-ti-z8B"/>
+                        <outlet property="StudentEmail" destination="537-X2-Mj0" id="LYr-cK-jgm"/>
                         <outlet property="Subject" destination="YHe-Z3-q5i" id="mU2-SK-GFa"/>
+                        <outlet property="studentTable" destination="rbc-A0-neo" id="UXs-EY-3sT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DoD-WU-yhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1293,6 +1315,21 @@
                                 <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="O8t-Oa-YzF"/>
                                 <action selector="cancelLogout:" destination="WX2-GC-dmK" eventType="touchUpInside" id="gKq-Ti-LPx"/>
                                 <action selector="dismissPopUp:" destination="WX2-GC-dmK" eventType="touchUpInside" id="XTm-14-yv3"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8z-LG-agD">
+                            <rect key="frame" x="127" y="159" width="186" height="132"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="36"/>
+                            <state key="normal" title="Logout">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="Logout:" destination="WX2-GC-dmK" eventType="touchUpInside" id="5yQ-ZG-hF2"/>
+                                <action selector="LogoutConfirmed:" destination="WX2-GC-dmK" eventType="touchUpInside" id="EU1-oz-JLt"/>
+                                <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="hVO-wd-UkI"/>
+                                <action selector="dismissPopUp:" destination="WX2-GC-dmK" eventType="touchUpInside" id="GkA-m9-qAA"/>
                             </connections>
                         </button>
                     </subviews>
