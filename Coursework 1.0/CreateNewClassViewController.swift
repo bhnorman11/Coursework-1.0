@@ -20,8 +20,9 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath)
         cell.textLabel?.text = studentArray[indexPath.row]
         return cell
-        
     }
+    
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -31,7 +32,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        Successful.isHidden = true
     }
     
     @IBOutlet weak var StudentEmail: UITextField!
@@ -39,6 +40,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var Block: UITextField!
     @IBOutlet weak var Set: UITextField!
     @IBOutlet weak var studentTable: UITableView!
+    @IBOutlet weak var Successful: UILabel!
     var studentArray = [String]()
     
     @IBAction func AddStudent(_ sender: Any) {
@@ -73,6 +75,15 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
+                    if i == self.studentArray.count - 1 {
+                        self.Successful.isHidden = false
+                        self.Subject.text = ""
+                        self.Block.text = ""
+                        self.Set.text = ""
+                        self.StudentEmail.text = ""
+                        self.studentArray.removeAll()
+                        self.studentTable.reloadData()
+                    }
                     
                 }
             }
