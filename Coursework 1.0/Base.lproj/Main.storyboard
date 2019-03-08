@@ -787,9 +787,13 @@
                         <viewLayoutGuide key="safeArea" id="xyd-dM-i4C"/>
                     </view>
                     <connections>
+                        <outlet property="AddEmailButton" destination="NtI-gI-RHH" id="xEB-yB-y3g"/>
+                        <outlet property="AddEmailLabel" destination="Hht-JU-oVd" id="c3n-MW-Eer"/>
+                        <outlet property="AddEmailText" destination="2gp-dt-Lzu" id="ff2-37-nWY"/>
                         <outlet property="BlockLabel" destination="2Ny-eb-wEH" id="arn-hU-Aui"/>
                         <outlet property="BlockTest" destination="uaY-7m-Lve" id="LYF-Ou-gns"/>
                         <outlet property="SetPicker" destination="n2N-2f-vH0" id="DfP-uB-Dj9"/>
+                        <outlet property="StudentTable" destination="Vj5-EV-3Tm" id="9Qf-Bs-jgc"/>
                         <outlet property="SubjectLabel" destination="7PB-lX-l2h" id="HhG-gS-O81"/>
                         <outlet property="SubjectText" destination="ux3-0D-d3J" id="zmM-QV-cyc"/>
                     </connections>
