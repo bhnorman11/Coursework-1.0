@@ -28,6 +28,7 @@
 		B5CD3A5421F1013500078B1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5CD3A5221F1013500078B1B /* LaunchScreen.storyboard */; };
 		B5CD3A5F21F1013500078B1B /* Coursework_1_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD3A5E21F1013500078B1B /* Coursework_1_0Tests.swift */; };
 		B5CD3A6A21F1013500078B1B /* Coursework_1_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD3A6921F1013500078B1B /* Coursework_1_0UITests.swift */; };
+		B5DADD0D2233177E009AE50A /* ViewClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DADD0C2233177E009AE50A /* ViewClassesViewController.swift */; };
 		EAA40DB0B8F04FEE1E9C7C69 /* Pods_Coursework_1_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5DD1F2E45C4F469AB32BB1 /* Pods_Coursework_1_0Tests.framework */; };
 		F552FC2B4B82ED588C29D058 /* Pods_Coursework_1_0UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF7FF8149EA9B13534EDEFB /* Pods_Coursework_1_0UITests.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		B5CD3A6521F1013500078B1B /* Coursework 1.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coursework 1.0UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CD3A6921F1013500078B1B /* Coursework_1_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coursework_1_0UITests.swift; sourceTree = "<group>"; };
 		B5CD3A6B21F1013500078B1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5DADD0C2233177E009AE50A /* ViewClassesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewClassesViewController.swift; sourceTree = "<group>"; };
 		DAAC68A11F828CD88E43BF48 /* Pods_Coursework_1_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coursework_1_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5706C8784D557181304CE03 /* Pods-Coursework 1.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coursework 1.0.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coursework 1.0/Pods-Coursework 1.0.release.xcconfig"; sourceTree = "<group>"; };
 		EA905DFD4E84A3CAE5950C0B /* Pods-Coursework 1.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coursework 1.0Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coursework 1.0Tests/Pods-Coursework 1.0Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				B5CD3A4921F1013000078B1B /* AppDelegate.swift */,
 				B5CD3A4B21F1013000078B1B /* ViewController.swift */,
 				B5CD3A4D21F1013000078B1B /* Main.storyboard */,
+				B5DADD0C2233177E009AE50A /* ViewClassesViewController.swift */,
 				B5836210222942F2000D4FBD /* CreateNewClassViewController.swift */,
 				B583620E222842A4000D4FBD /* ViewFeedbackViewController.swift */,
 				B583620C2227E6A3000D4FBD /* CustomSegue.swift */,
@@ -457,6 +460,7 @@
 				B536244A21FD12FD00CE166B /* SignUpViewController.swift in Sources */,
 				B589596D22022BE500A9DA8A /* MakeSuggestionViewController.swift in Sources */,
 				B5CD3A4A21F1013000078B1B /* AppDelegate.swift in Sources */,
+				B5DADD0D2233177E009AE50A /* ViewClassesViewController.swift in Sources */,
 				B58959692202220700A9DA8A /* AnswerQuestionsViewController.swift in Sources */,
 				B58362092227567A000D4FBD /* StudentMainViewController.swift in Sources */,
 			);

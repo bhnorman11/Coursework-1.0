@@ -652,6 +652,152 @@
             </objects>
             <point key="canvasLocation" x="1918" y="2368"/>
         </scene>
+        <!--View Classes View Controller-->
+        <scene sceneID="fKm-yM-ZKq">
+            <objects>
+                <viewController id="IVq-ET-2Bs" customClass="ViewClassesViewController" customModule="Coursework_1_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Koh-ml-BPa">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfE-5a-TAg">
+                                <rect key="frame" x="20" y="17" width="73" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="36"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="Logout:" destination="WX2-GC-dmK" eventType="touchUpInside" id="R4b-2Q-B5i"/>
+                                    <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="2zp-Qy-lgk"/>
+                                    <segue destination="n95-d2-Lif" kind="custom" customClass="UnwindScaleSegue" customModule="Coursework_1_0" customModuleProvider="target" id="mJ1-h2-Ewx"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BackArrow" translatesAutoresizingMaskIntoConstraints="NO" id="sUl-Ng-5cy">
+                                <rect key="frame" x="20" y="22" width="73" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View Current Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mO6-4V-oOd">
+                                <rect key="frame" x="280" y="22" width="552" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLd-Lj-YPv">
+                                <rect key="frame" x="161" y="152" width="59" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PB-lX-l2h">
+                                <rect key="frame" x="124" y="458" width="132" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vj5-EV-3Tm">
+                                <rect key="frame" x="536" y="458" width="445" height="334"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="ehd-EI-D7J">
+                                        <rect key="frame" x="0.0" y="28" width="445" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ehd-EI-D7J" id="xpo-Be-Cbm">
+                                            <rect key="frame" x="0.0" y="0.0" width="445" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IVq-ET-2Bs" id="EN4-Em-f3w"/>
+                                    <outlet property="delegate" destination="IVq-ET-2Bs" id="F4j-68-KQj"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Students" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4J-58-4MI">
+                                <rect key="frame" x="675" y="400" width="166" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add New Student Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hht-JU-oVd">
+                                <rect key="frame" x="541" y="119" width="434" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2gp-dt-Lzu">
+                                <rect key="frame" x="637" y="203" width="243" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NtI-gI-RHH">
+                                <rect key="frame" x="700" y="264" width="116" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="36"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddStudent:" destination="TBC-j8-fPl" eventType="touchUpInside" id="2VL-yc-Y8f"/>
+                                    <action selector="Logout:" destination="WX2-GC-dmK" eventType="touchUpInside" id="g5L-4H-5Cd"/>
+                                    <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="rY8-mA-8ON"/>
+                                    <action selector="dismissPopUp:" destination="WX2-GC-dmK" eventType="touchUpInside" id="dJh-53-LYD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Block" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ny-eb-wEH">
+                                <rect key="frame" x="140" y="645" width="100" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n2N-2f-vH0">
+                                <rect key="frame" x="10" y="203" width="361" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="IVq-ET-2Bs" id="3nc-J0-TIB"/>
+                                    <outlet property="delegate" destination="IVq-ET-2Bs" id="7Xz-x2-Slp"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ux3-0D-d3J">
+                                <rect key="frame" x="124" y="533" width="132" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="40"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Block" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaY-7m-Lve">
+                                <rect key="frame" x="140" y="718" width="100" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="40"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="xyd-dM-i4C"/>
+                    </view>
+                    <connections>
+                        <outlet property="BlockLabel" destination="2Ny-eb-wEH" id="arn-hU-Aui"/>
+                        <outlet property="BlockTest" destination="uaY-7m-Lve" id="LYF-Ou-gns"/>
+                        <outlet property="SetPicker" destination="n2N-2f-vH0" id="DfP-uB-Dj9"/>
+                        <outlet property="SubjectLabel" destination="7PB-lX-l2h" id="HhG-gS-O81"/>
+                        <outlet property="SubjectText" destination="ux3-0D-d3J" id="zmM-QV-cyc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ANL-Bn-0Pr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="389.56834532374103" y="-1353.2374100719426"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="mjI-P3-qII">
             <objects>
@@ -1016,6 +1162,7 @@
                                     <action selector="LogoutConfirmed:" destination="WX2-GC-dmK" eventType="touchUpInside" id="PMu-LD-k9T"/>
                                     <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="YAZ-Y2-1gS"/>
                                     <action selector="dismissPopUp:" destination="WX2-GC-dmK" eventType="touchUpInside" id="WHk-iX-GWl"/>
+                                    <segue destination="IVq-ET-2Bs" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="dW7-98-jZG"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PCm-05-7Ce">
@@ -1337,6 +1484,7 @@
                                 <action selector="LogoutConfirmed:" destination="WX2-GC-dmK" eventType="touchUpInside" id="EU1-oz-JLt"/>
                                 <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="hVO-wd-UkI"/>
                                 <action selector="dismissPopUp:" destination="WX2-GC-dmK" eventType="touchUpInside" id="GkA-m9-qAA"/>
+                                <segue destination="lUi-aT-Bjc" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="7KL-Zn-cPd"/>
                             </connections>
                         </button>
                     </subviews>
@@ -1408,7 +1556,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fsD-dv-EmB"/>
-        <segue reference="Luv-9s-Zsm"/>
+        <segue reference="mJ1-h2-Ewx"/>
         <segue reference="ZRE-Qk-8cQ"/>
         <segue reference="i8e-Wr-0Sr"/>
         <segue reference="c25-Jg-aE3"/>
