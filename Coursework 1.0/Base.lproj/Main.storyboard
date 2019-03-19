@@ -1559,10 +1559,11 @@
         <image name="Settings" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="dW7-98-jZG"/>
         <segue reference="fsD-dv-EmB"/>
         <segue reference="mJ1-h2-Ewx"/>
-        <segue reference="ZRE-Qk-8cQ"/>
-        <segue reference="i8e-Wr-0Sr"/>
+        <segue reference="4I0-6d-8ll"/>
+        <segue reference="ZQD-aE-LRs"/>
         <segue reference="c25-Jg-aE3"/>
     </inferredMetricsTieBreakers>
 </document>

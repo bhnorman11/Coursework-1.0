@@ -7,12 +7,11 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
-class ViewClassesViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
+class ViewClassesViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         <#code#>
@@ -22,13 +21,29 @@ class ViewClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
         <#code#>
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        <#code#>
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
+    
+    let db = Firestore.firestore()
+    let user = Auth.auth().currentUser
+    var sets = [String]()
+    
+    func getSets() {
+        let email = user?.email
+        let docRef = self.db.collection("Teachers").document(email!).collection("Classes").document()
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideEverything()
+        getSets()
         
+    }
+    
+    func hideEverything() {
         SubjectLabel.isHidden = true
         SubjectText.isHidden = true
         BlockLabel.isHidden = true
