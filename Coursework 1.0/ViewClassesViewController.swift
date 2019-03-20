@@ -11,20 +11,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-class ViewClassesViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        <#code#>
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        <#code#>
-    }
-    
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
+class ViewClassesViewController: UIViewController {
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -32,7 +19,16 @@ class ViewClassesViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     func getSets() {
         let email = user?.email
-        let docRef = self.db.collection("Teachers").document(email!).collection("Classes").document()
+        db.collection("Teachers").document(email!).collection("Classes").whereField("Active Set", isEqualTo: true).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            }
+            else {
+                for document in querySnapshot!.documents {
+                    self.sets.append(document.documentID)
+                }
+            }
+        }
     }
     
 

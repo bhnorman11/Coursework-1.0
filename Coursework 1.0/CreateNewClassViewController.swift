@@ -56,7 +56,8 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
         let email = user?.email
         db.collection("Teachers").document(email!).collection("Classes").document(Set.text!).setData([
             "Block": Block.text!,
-            "Subject": Subject.text!
+            "Subject": Subject.text!,
+            "Set": Set.text!
         ])
         { err in
             if let err = err {
