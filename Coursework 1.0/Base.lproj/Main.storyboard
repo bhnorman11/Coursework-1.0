@@ -712,10 +712,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="IVq-ET-2Bs" id="EN4-Em-f3w"/>
-                                    <outlet property="delegate" destination="IVq-ET-2Bs" id="F4j-68-KQj"/>
-                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Students" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4J-58-4MI">
                                 <rect key="frame" x="675" y="400" width="166" height="50"/>
@@ -792,15 +788,15 @@
                         <outlet property="AddEmailText" destination="2gp-dt-Lzu" id="ff2-37-nWY"/>
                         <outlet property="BlockLabel" destination="2Ny-eb-wEH" id="arn-hU-Aui"/>
                         <outlet property="BlockTest" destination="uaY-7m-Lve" id="LYF-Ou-gns"/>
+                        <outlet property="SetLabel" destination="cLd-Lj-YPv" id="LFv-Op-3YU"/>
                         <outlet property="SetPicker" destination="n2N-2f-vH0" id="DfP-uB-Dj9"/>
-                        <outlet property="StudentTable" destination="Vj5-EV-3Tm" id="9Qf-Bs-jgc"/>
                         <outlet property="SubjectLabel" destination="7PB-lX-l2h" id="HhG-gS-O81"/>
                         <outlet property="SubjectText" destination="ux3-0D-d3J" id="zmM-QV-cyc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ANL-Bn-0Pr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="389.56834532374103" y="-1353.2374100719426"/>
+            <point key="canvasLocation" x="285" y="-1353"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mjI-P3-qII">
@@ -1166,7 +1162,7 @@
                                     <action selector="LogoutConfirmed:" destination="WX2-GC-dmK" eventType="touchUpInside" id="PMu-LD-k9T"/>
                                     <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="YAZ-Y2-1gS"/>
                                     <action selector="dismissPopUp:" destination="WX2-GC-dmK" eventType="touchUpInside" id="WHk-iX-GWl"/>
-                                    <segue destination="IVq-ET-2Bs" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="dW7-98-jZG"/>
+                                    <segue destination="IVq-ET-2Bs" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="Je6-Hu-bjp"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PCm-05-7Ce">
@@ -1559,7 +1555,6 @@
         <image name="Settings" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dW7-98-jZG"/>
         <segue reference="fsD-dv-EmB"/>
         <segue reference="mJ1-h2-Ewx"/>
         <segue reference="4I0-6d-8ll"/>
