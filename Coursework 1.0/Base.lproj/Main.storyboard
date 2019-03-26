@@ -1051,7 +1051,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incorrect email or password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7W-gF-362">
-                                <rect key="frame" x="450" y="572" width="213" height="21"/>
+                                <rect key="frame" x="450" y="572" width="319" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.13297346737094429" blue="0.071512527940110537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1092,7 +1092,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YwT-xL-SpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="285" y="652"/>
+            <point key="canvasLocation" x="284.89208633093529" y="651.79856115107918"/>
         </scene>
         <!--View Feedback View Controller-->
         <scene sceneID="T4S-fS-EcI">
@@ -1555,10 +1555,10 @@
         <image name="Settings" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fsD-dv-EmB"/>
-        <segue reference="mJ1-h2-Ewx"/>
-        <segue reference="4I0-6d-8ll"/>
-        <segue reference="ZQD-aE-LRs"/>
+        <segue reference="Ehh-GJ-Piu"/>
+        <segue reference="wYJ-Jw-rKL"/>
+        <segue reference="eSC-6g-mhM"/>
+        <segue reference="mzu-gR-Mll"/>
         <segue reference="c25-Jg-aE3"/>
     </inferredMetricsTieBreakers>
 </document>
