@@ -99,6 +99,34 @@ class AnswerQuestionsViewController: UIViewController {
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     
+    func EmptyField() -> Bool{
+        if (QuestionOne.text == "") && (QuestionTwo.text == "") && (QuestionThree.text == "") {
+            Successful.textColor = .red
+            Successful.text = "Please fill in one or more answers."
+            Successful.isHidden = false
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func checkSuggestionTooLong() -> Bool{
+        var counter = 0
+        for character in QuestionOne.text!.characters {
+            counter += 1
+        }
+        if counter > 100 {
+            Successful.textColor = .red
+            Successful.text = "Maximum of 150 characters."
+            Successful.isHidden = false
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
     
     @IBAction func Send(_ sender: Any) {
         let email = user?.email

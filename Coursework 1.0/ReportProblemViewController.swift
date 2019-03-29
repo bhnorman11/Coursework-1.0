@@ -42,7 +42,7 @@ class ReportProblemViewController: UIViewController {
         for character in Problem.text!.characters {
             counter += 1
         }
-        if counter > 15 {
+        if counter > 100 {
             Successful.textColor = .red
             Successful.text = "Maximum of 150 characters."
             Successful.isHidden = false

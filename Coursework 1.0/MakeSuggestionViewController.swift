@@ -23,16 +23,46 @@ class MakeSuggestionViewController: UIViewController {
     @IBOutlet weak var Suggestion: UITextField!
     @IBOutlet weak var Successful: UILabel!
     
+    func EmptyField() -> Bool{
+        if Suggestion.text == "" {
+            Successful.textColor = .red
+            Successful.text = "Please fill in what suggestion you have."
+            Successful.isHidden = false
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func checkSuggestionTooLong() -> Bool{
+        var counter = 0
+        for character in Suggestion.text!.characters {
+            counter += 1
+        }
+        if counter > 100 {
+            Successful.textColor = .red
+            Successful.text = "Maximum of 150 characters."
+            Successful.isHidden = false
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
     @IBAction func Send(_ sender: Any) {
-        let email = user?.email
-        db.collection("Suggestions").document(email!).setData([
-            "Suggestion": Suggestion.text!
-        ]) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
-                self.Successful.isHidden = false
+        if (checkSuggestionTooLong() == false) && (EmptyField() == false) {
+            let email = user?.email
+            db.collection("Suggestions").document(email!).setData([
+                "Suggestion": Suggestion.text!
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                    self.Successful.isHidden = false
+                }
             }
         }
     }
