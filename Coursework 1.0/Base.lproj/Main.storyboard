@@ -257,8 +257,8 @@
                                     <action selector="sendData:" destination="NRu-5d-vkU" eventType="touchUpInside" id="Rz4-lz-ADz"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Problem Reported!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLE-Ff-0Ml">
-                                <rect key="frame" x="452" y="642" width="208" height="21"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLE-Ff-0Ml">
+                                <rect key="frame" x="348" y="644" width="417" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -853,7 +853,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zrs-Zq-Z8d">
-                                <rect key="frame" x="466" y="717" width="181" height="68"/>
+                                <rect key="frame" x="466" y="746" width="181" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="36"/>
@@ -982,6 +982,13 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incorrect email or password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOf-89-8xO">
+                                <rect key="frame" x="397" y="694" width="319" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.13297346739999999" blue="0.071512527940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="AYz-4y-sya"/>
@@ -990,6 +997,7 @@
                         <outlet property="Block" destination="u1q-2n-s47" id="2Xp-eG-6jn"/>
                         <outlet property="BlockLabel" destination="YLz-BR-JKo" id="UGo-W7-ok7"/>
                         <outlet property="Email" destination="Q57-Ra-xhF" id="lpI-Ye-NI7"/>
+                        <outlet property="Error" destination="bOf-89-8xO" id="3ef-4C-zNL"/>
                         <outlet property="FirstName" destination="1hD-RR-RE0" id="HGu-bG-k0X"/>
                         <outlet property="LastName" destination="rUO-Y7-G4O" id="oSc-Ni-ecr"/>
                         <outlet property="Password" destination="n2Q-sg-iXa" id="tY4-JS-EKd"/>
@@ -1050,13 +1058,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incorrect email or password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7W-gF-362">
-                                <rect key="frame" x="450" y="572" width="319" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.13297346737094429" blue="0.071512527940110537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BackArrow" translatesAutoresizingMaskIntoConstraints="NO" id="qR5-zo-nuo">
                                 <rect key="frame" x="0.0" y="20" width="73" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1078,6 +1079,13 @@
                                     <action selector="Login:" destination="08C-fd-RkW" eventType="touchUpInside" id="FIp-hw-bX1"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incorrect email or password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7W-gF-362">
+                                <rect key="frame" x="454" y="638" width="319" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.13297346737094429" blue="0.071512527940110537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qcG-8M-2hW"/>
@@ -1555,10 +1563,11 @@
         <image name="Settings" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ehh-GJ-Piu"/>
+        <segue reference="e0m-sI-EwA"/>
+        <segue reference="CjY-Pa-OIG"/>
         <segue reference="wYJ-Jw-rKL"/>
-        <segue reference="eSC-6g-mhM"/>
-        <segue reference="mzu-gR-Mll"/>
-        <segue reference="c25-Jg-aE3"/>
+        <segue reference="ZRE-Qk-8cQ"/>
+        <segue reference="i8e-Wr-0Sr"/>
+        <segue reference="p7l-va-h9w"/>
     </inferredMetricsTieBreakers>
 </document>

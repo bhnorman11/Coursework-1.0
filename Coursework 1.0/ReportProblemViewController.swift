@@ -25,16 +25,48 @@ class ReportProblemViewController: UIViewController {
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     
+    func EmptyField() -> Bool{
+        if Problem.text == "" {
+            Successful.textColor = .red
+            Successful.text = "Please fill in what problem you have."
+            Successful.isHidden = false
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func checkProblemTooLong() -> Bool{
+        var counter = 0
+        for character in Problem.text!.characters {
+            counter += 1
+        }
+        if counter > 15 {
+            Successful.textColor = .red
+            Successful.text = "Maximum of 150 characters."
+            Successful.isHidden = false
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
     @IBAction func sendData(_ sender: Any) {
-        let email = user?.email
-        db.collection("Problems").document(email!).setData([
-            "Problem": Problem.text!
-        ]) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
-                self.Successful.isHidden = false
+        if (checkProblemTooLong() == false) && (EmptyField() == false) {
+            let email = user?.email
+            db.collection("Problems").document(email!).setData([
+                "Problem": Problem.text!
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                    self.Successful.textColor = .blue
+                    self.Successful.text = "Problem reported!"
+                    self.Successful.isHidden = false
+                }
             }
         }
     }

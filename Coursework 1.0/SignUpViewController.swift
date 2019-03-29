@@ -18,11 +18,6 @@ class SignUpViewController: UIViewController {
         peopleButtons.forEach { (button) in
             button.isHidden = !button.isHidden
         }
-        Email.text = ""
-        Password.text = ""
-        FirstName.text = ""
-        LastName.text = ""
-        Block.text = ""
     }
     
     @IBOutlet weak var BlockLabel: UILabel!
@@ -31,51 +26,140 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var FirstName: UITextField!
     @IBOutlet weak var LastName: UITextField!
     @IBOutlet weak var Block: UITextField!
+    @IBOutlet weak var Error: UILabel!
+    
+    func emptyFields() -> Bool {
+        if Email.text == "" {
+            Error.text = "Please input your email address."
+            Error.isHidden = false
+            return true
+        }
+        else if Password.text == "" {
+            Error.text = "Please input your password."
+            Error.isHidden = false
+            return true
+        }
+        else if FirstName.text == "" {
+            Error.text = "Please input your first name."
+            Error.isHidden = false
+            return true
+        }
+        else if LastName.text == "" {
+            Error.text = "Please input your last name."
+            Error.isHidden = false
+            return true
+        }
+        else if Block.text == "" {
+            Error.text = "Please input your block."
+            Error.isHidden = false
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func validEmail() -> Bool {
+        var atSymbol = false
+        var fullStop = false
+        for character in Email.text!.characters {
+            if character == "@"{
+                atSymbol = true
+            }
+            else if character == "." {
+                fullStop = true
+            }
+        }
+        if atSymbol == false {
+            Error.text = "Please include an @ symbol in your email."
+            Error.isHidden = false
+            return false
+        }
+        else if fullStop == false {
+            Error.text = "Please include a full stop in your email."
+            Error.isHidden = false
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
+    func selectedStudentOrTeacher () -> Bool {
+        if (Student.alpha == 1.0) && (Teacher.alpha == 1.0) {
+            Error.text = "Please select whether you're a student or a teacher."
+            Error.isHidden = false
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
+    func validBlock() -> Bool {
+        if (Block.text != "B") && (Block.text != "C") && (Block.text != "D") && (Block.text != "E") && (Block.text != "F") {
+            Error.text = "Please select B, C, D, E or F as your block."
+            Error.isHidden = false
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
+    func checkValidInputs() -> Bool {
+        if (emptyFields() == false) && (validEmail() == true) && (selectedStudentOrTeacher() == true) && (validBlock() == true) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
     
     @IBAction func SignUp(_ sender: Any) {
-        if Student.alpha == 1.0 {
-            Auth.auth().createUser(withEmail: Email.text!, password: Password.text!, completion: {(user, error) in
-                if error != nil{
-                    print(error!)
-                }else{
-                    self.db.collection("Users").document(self.Email.text!).setData([
-                        "Student": true,
-                        "First Name": self.FirstName.text!,
-                        "Second Name": self.LastName.text!,
-                        "Block": self.Block.text!])
-                    { err in
-                        if let err = err {
-                            print("Error updating document: \(err)")
-                        } else {
-                            print("Document successfully updated")
+        if checkValidInputs() == true {
+            if Student.alpha == 1.0 {
+                Auth.auth().createUser(withEmail: Email.text!, password: Password.text!, completion: {(user, error) in
+                    if error != nil{
+                        print(error!)
+                    }else{
+                        self.db.collection("Users").document(self.Email.text!).setData([
+                            "Student": true,
+                            "First Name": self.FirstName.text!,
+                            "Second Name": self.LastName.text!,
+                            "Block": self.Block.text!])
+                        { err in
+                            if let err = err {
+                                print("Error updating document: \(err)")
+                            } else {
+                                print("Document successfully updated")
+                            }
                         }
                     }
-                }
-            })
-            self.performSegue(withIdentifier: "StudentSignUp", sender: self)
-        }
-        else if Student.alpha != 1.0 {
-            Auth.auth().createUser(withEmail: Email.text!, password: Password.text!, completion: {(user, error) in
-                if error != nil{
-                    print(error!)
-                }else{
-                    self.db.collection("Teachers").document(self.Email.text!).setData([
-                        "Student": false,
-                        "First Name": self.FirstName.text!,
-                        "Last Name": self.LastName.text!])
-                    { err in
-                        if let err = err {
-                            print("Error updating document: \(err)")
-                        } else {
-                            print("Document successfully updated")
+                })
+                self.performSegue(withIdentifier: "StudentSignUp", sender: self)
+            }
+            else if Student.alpha != 1.0 {
+                Auth.auth().createUser(withEmail: Email.text!, password: Password.text!, completion: {(user, error) in
+                    if error != nil{
+                        print(error!)
+                    }else{
+                        self.db.collection("Teachers").document(self.Email.text!).setData([
+                            "Student": false,
+                            "First Name": self.FirstName.text!,
+                            "Last Name": self.LastName.text!])
+                        { err in
+                            if let err = err {
+                                print("Error updating document: \(err)")
+                            } else {
+                                print("Document successfully updated")
+                            }
                         }
                     }
-                }
-            })
-            self.performSegue(withIdentifier: "TeacherSignUp", sender: self)
+                })
+                self.performSegue(withIdentifier: "TeacherSignUp", sender: self)
+            }
         }
-        
-        
     }
     
     let db = Firestore.firestore()
