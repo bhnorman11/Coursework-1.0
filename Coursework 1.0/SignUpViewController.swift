@@ -96,9 +96,9 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func validBlock() -> Bool {
-        if (Block.text != "B") && (Block.text != "C") && (Block.text != "D") && (Block.text != "E") && (Block.text != "F") {
-            Error.text = "Please select B, C, D, E or F as your block."
+    func validYear() -> Bool {
+        if (Block.text != "13") && (Block.text != "12") && (Block.text != "11") && (Block.text != "10") && (Block.text != "9") {
+            Error.text = "Please select 13, 12, 11, 10 or F9 as your year."
             Error.isHidden = false
             return false
         }
@@ -108,7 +108,7 @@ class SignUpViewController: UIViewController {
     }
     
     func checkValidInputs() -> Bool {
-        if (emptyFields() == false) && (validEmail() == true) && (selectedStudentOrTeacher() == true) && (validBlock() == true) {
+        if (emptyFields() == false) && (validEmail() == true) && (selectedStudentOrTeacher() == true) && (validYear() == true) {
             return true
         }
         else {
