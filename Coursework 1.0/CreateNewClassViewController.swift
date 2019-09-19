@@ -22,16 +22,12 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
-
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
         Successful.isHidden = true
     }
     
@@ -57,7 +53,8 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
         db.collection("Teachers").document(email!).collection("Classes").document(Set.text!).setData([
             "Block": Block.text!,
             "Subject": Subject.text!,
-            "Set": Set.text!
+            "Set": Set.text!,
+            "Active Set": true
         ])
         { err in
             if let err = err {

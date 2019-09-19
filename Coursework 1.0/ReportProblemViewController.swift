@@ -39,12 +39,12 @@ class ReportProblemViewController: UIViewController {
     
     func checkProblemTooLong() -> Bool{
         var counter = 0
-        for character in Problem.text!.characters {
+        for _ in Problem.text! {
             counter += 1
         }
         if counter > 100 {
             Successful.textColor = .red
-            Successful.text = "Maximum of 150 characters."
+            Successful.text = "Maximum: 150 characters."
             Successful.isHidden = false
             return true
         }

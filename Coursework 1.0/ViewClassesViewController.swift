@@ -13,29 +13,11 @@ import FirebaseAuth
 
 class ViewClassesViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return sets.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return sets[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        SetLabel.text = sets[row]
-        unhideEverything()
-    }
-    
-    
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
-    var sets = [String]()
+    var sets = ["Maths","Biology","Chemistry"]
     
-    func getSets() {
+    /*func getSets() {
         let email = user?.email
         db.collection("Teachers").document(email!).collection("Classes").whereField("Active Set", isEqualTo: true).getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -49,13 +31,28 @@ class ViewClassesViewController: UIViewController, UIPickerViewDataSource, UIPic
             }
         }
     }
+    */
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
     
-
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return sets[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return sets.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        SetLabel.text = sets[row]
+        unhideEverything()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       // getSets()
         hideEverything()
-        getSets()
-        
     }
     
     func hideEverything() {

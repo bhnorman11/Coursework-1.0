@@ -49,7 +49,7 @@ class SignUpViewController: UIViewController {
             Error.isHidden = false
             return true
         }
-        else if Block.text == "" {
+        else if (Block.text == "") && (Teacher.alpha != 1.0){
             Error.text = "Please input your block."
             Error.isHidden = false
             return true
@@ -97,7 +97,7 @@ class SignUpViewController: UIViewController {
     }
     
     func validYear() -> Bool {
-        if (Block.text != "13") && (Block.text != "12") && (Block.text != "11") && (Block.text != "10") && (Block.text != "9") {
+        if (Block.text != "13") && (Block.text != "12") && (Block.text != "11") && (Block.text != "10") && (Block.text != "9") && (Teacher.alpha != 1.0) {
             Error.text = "Please select 13, 12, 11, 10 or F9 as your year."
             Error.isHidden = false
             return false
