@@ -148,6 +148,10 @@ class SignUpViewController: UIViewController {
                             "Student": false,
                             "First Name": self.FirstName.text!,
                             "Last Name": self.LastName.text!])
+                        self.db.collection("Users").document(self.Email.text!).setData([
+                            "Stdudent": false,
+                            "First Name": self.FirstName.text!,
+                            "Last Name": self.LastName.text!])
                         { err in
                             if let err = err {
                                 print("Error updating document: \(err)")
