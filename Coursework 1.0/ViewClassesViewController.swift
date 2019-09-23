@@ -15,9 +15,9 @@ class ViewClassesViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
-    var sets = ["Maths","Biology","Chemistry"]
+    var sets = [String]()
     
-    /*func getSets() {
+    func getSets() {
         let email = user?.email
         db.collection("Teachers").document(email!).collection("Classes").whereField("Active Set", isEqualTo: true).getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -31,7 +31,7 @@ class ViewClassesViewController: UIViewController, UIPickerViewDataSource, UIPic
             }
         }
     }
-    */
+ 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -51,7 +51,7 @@ class ViewClassesViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // getSets()
+        getSets()
         hideEverything()
     }
     
