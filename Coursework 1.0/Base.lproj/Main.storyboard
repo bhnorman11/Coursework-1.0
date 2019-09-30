@@ -968,6 +968,7 @@
                     <connections>
                         <outlet property="Block" destination="u1q-2n-s47" id="2Xp-eG-6jn"/>
                         <outlet property="BlockLabel" destination="YLz-BR-JKo" id="UGo-W7-ok7"/>
+                        <outlet property="ConfirmPassword" destination="jnK-Wy-ki1" id="JeR-Pf-ucq"/>
                         <outlet property="Email" destination="Q57-Ra-xhF" id="lpI-Ye-NI7"/>
                         <outlet property="Error" destination="bOf-89-8xO" id="3ef-4C-zNL"/>
                         <outlet property="FirstName" destination="1hD-RR-RE0" id="HGu-bG-k0X"/>

@@ -27,6 +27,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var LastName: UITextField!
     @IBOutlet weak var Block: UITextField!
     @IBOutlet weak var Error: UILabel!
+    @IBOutlet weak var ConfirmPassword: UITextField!
     
     func emptyFields() -> Bool {
         if Email.text == "" {
@@ -105,6 +106,10 @@ class SignUpViewController: UIViewController {
         else {
             return true
         }
+    }
+    
+    func confirm_Password() -> Bool{
+        //confirm the password
     }
     
     func checkValidInputs() -> Bool {
