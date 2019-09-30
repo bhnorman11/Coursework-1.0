@@ -144,12 +144,8 @@ class SignUpViewController: UIViewController {
                     if error != nil{
                         print(error!)
                     }else{
-                        self.db.collection("Teachers").document(self.Email.text!).setData([
-                            "Student": false,
-                            "First Name": self.FirstName.text!,
-                            "Last Name": self.LastName.text!])
                         self.db.collection("Users").document(self.Email.text!).setData([
-                            "Stdudent": false,
+                            "Student": false,
                             "First Name": self.FirstName.text!,
                             "Last Name": self.LastName.text!])
                         { err in

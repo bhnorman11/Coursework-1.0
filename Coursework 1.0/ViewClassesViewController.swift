@@ -16,10 +16,11 @@ class ViewClassesViewController: UIViewController, UIPickerViewDataSource, UIPic
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     var sets = [String]()
-    
-    func getSets() {
+    var new_sets = [String]()
+   
+    func getSets() -> [String]{
         let email = user?.email
-        db.collection("Teachers").document(email!).collection("Classes").whereField("Active Set", isEqualTo: true).getDocuments() { (querySnapshot, err) in
+        db.collection("Users").document(email!).collection("Classes").whereField("Active Set", isEqualTo: true).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             }
@@ -28,30 +29,35 @@ class ViewClassesViewController: UIViewController, UIPickerViewDataSource, UIPic
                     self.sets.append(document.documentID)
                 }
                 print(self.sets)
+                
             }
         }
+        return sets
     }
  
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return sets[row]
+        new_sets = getSets()
+        return new_sets[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return sets.count
+        new_sets = getSets()
+        return new_sets.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        SetLabel.text = sets[row]
+        new_sets = getSets()
+        SetLabel.text = new_sets[row]
         unhideEverything()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getSets()
         hideEverything()
     }
     

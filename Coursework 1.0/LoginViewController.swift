@@ -61,8 +61,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    
-    
     @IBAction func Login(_ sender: Any) {
         if (checkFieldsEmpty() == true) && (checkEmail() == true){
             Auth.auth().signIn(withEmail: (Email.text!), password: (Password.text!)) { (user, error) in

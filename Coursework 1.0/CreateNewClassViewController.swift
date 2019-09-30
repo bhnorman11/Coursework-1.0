@@ -50,7 +50,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func CreateClass(_ sender: Any) {
         let email = user?.email
-        db.collection("Teachers").document(email!).collection("Classes").document(Set.text!).setData([
+        db.collection("Users").document(email!).collection("Classes").document(Set.text!).setData([
             "Block": Block.text!,
             "Subject": Subject.text!,
             "Set": Set.text!,
@@ -65,7 +65,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
             }
         }
         for i in 0...studentArray.count - 1 {
-            db.collection("Teachers").document(email!).collection("Classes").document(Set.text!).collection("Students").document(studentArray[i]).setData([
+            db.collection("Users").document(email!).collection("Classes").document(Set.text!).collection("Students").document(studentArray[i]).setData([
                 "Email": studentArray[i],
             ])
             { err in
