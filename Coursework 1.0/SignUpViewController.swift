@@ -99,7 +99,7 @@ class SignUpViewController: UIViewController {
     
     func validYear() -> Bool {
         if (Block.text != "13") && (Block.text != "12") && (Block.text != "11") && (Block.text != "10") && (Block.text != "9") && (Teacher.alpha != 1.0) {
-            Error.text = "Please select 13, 12, 11, 10 or F9 as your year."
+            Error.text = "Please select 13, 12, 11, 10 or 9 as your year."
             Error.isHidden = false
             return false
         }
@@ -108,12 +108,35 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func confirm_Password() -> Bool{
-        //confirm the password
+    func confirmPassword() -> Bool{
+        if ConfirmPassword == Password {
+            return true
+        }
+        else{
+            Error.text = "Your confirmed password is not the same as your password."
+            return false
+        }
+    }
+    
+    func validPassword() -> Bool{
+        var counter = 0
+        var containsNumber = false
+        for character in Password.text! {
+            counter += 1
+            if (character == "0") || (character == "1") || (character == "2") || (character == "3") || (character == "4") || (character == "5") || (character == "6") || (character == "7") || (character == "8") || (character == "9") || {
+                containsNumber = true
+            }
+        }
+        if counter < 8 {
+            Error.text = "Password length must be greater than 7."
+            return false
+        }
+        
+        
     }
     
     func checkValidInputs() -> Bool {
-        if (emptyFields() == false) && (validEmail() == true) && (selectedStudentOrTeacher() == true) && (validYear() == true) {
+        if (emptyFields() == false) && (validEmail() == true) && (selectedStudentOrTeacher() == true) && (validYear() == true) && (confirmPassword() == true) {
             return true
         }
         else {
