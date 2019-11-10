@@ -12,14 +12,20 @@ class JoinClassViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        Error.isHidden = true
     }
     
     @IBOutlet weak var Code: UITextField!
+    @IBOutlet weak var Error: UILabel!
     
     @IBAction func Continue(_ sender: Any) {
     }
     
+    func validateEntry(){
+        if Code.text!.count != 8 {
+            Error.isHidden = false
+        }
+    }
 
 }

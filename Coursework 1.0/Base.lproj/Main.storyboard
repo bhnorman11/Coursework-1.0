@@ -231,14 +231,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z09-oJ-zw7">
-                                <rect key="frame" x="403" y="250" width="306" height="126"/>
+                                <rect key="frame" x="403" y="196" width="306" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="60"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7s-Ga-trV">
-                                <rect key="frame" x="454" y="402" width="204" height="30"/>
+                                <rect key="frame" x="454" y="370" width="204" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -256,7 +256,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9S-D8-QLP">
-                                <rect key="frame" x="437" y="526" width="238" height="90"/>
+                                <rect key="frame" x="437" y="580" width="238" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="36"/>
@@ -265,12 +265,21 @@
                                     <action selector="Continue:" destination="U1s-5y-M2g" eventType="touchUpInside" id="8MK-Nl-eGZ"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Code is invalid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UW-rq-xVo">
+                                <rect key="frame" x="433" y="489" width="247" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="1" green="0.13297346739999999" blue="0.071512527940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="BMc-kn-tzg"/>
                     </view>
                     <connections>
                         <outlet property="Code" destination="v7s-Ga-trV" id="0tL-vG-bFp"/>
+                        <outlet property="Error" destination="1UW-rq-xVo" id="yZq-6l-yr9"/>
+                        <outlet property="Successful" destination="1UW-rq-xVo" id="P1h-tn-AFj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCX-jN-7nV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1565,7 +1574,7 @@
         <segue reference="CjY-Pa-OIG"/>
         <segue reference="wYJ-Jw-rKL"/>
         <segue reference="4I0-6d-8ll"/>
-        <segue reference="ZQD-aE-LRs"/>
+        <segue reference="IBt-5P-Erj"/>
         <segue reference="fzF-Dy-h9Q"/>
     </inferredMetricsTieBreakers>
 </document>
