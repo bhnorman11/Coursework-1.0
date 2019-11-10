@@ -40,6 +40,11 @@ class SignUpViewController: UIViewController {
             Error.isHidden = false
             return true
         }
+        else if ConfirmPassword.text == "" {
+            Error.text = "Please input your confirmed password."
+            Error.isHidden = false
+            return true
+        }
         else if FirstName.text == "" {
             Error.text = "Please input your first name."
             Error.isHidden = false
@@ -109,11 +114,12 @@ class SignUpViewController: UIViewController {
     }
     
     func confirmPassword() -> Bool{
-        if ConfirmPassword == Password {
+        if ConfirmPassword.text == Password.text {
             return true
         }
         else{
-            Error.text = "Your confirmed password is not the same as your password."
+            Error.text = "Your passwords do not match."
+            Error.isHidden = false
             return false
         }
     }
@@ -121,22 +127,56 @@ class SignUpViewController: UIViewController {
     func validPassword() -> Bool{
         var counter = 0
         var containsNumber = false
+        var greaterThanSeven = false
+        var containsCharacter = false
+        var containsCapital = false
+        let symbols = "!@#$%^&*()-_=+][{};:'/.,<>`~"
+        let capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         for character in Password.text! {
             counter += 1
-            if (character == "0") || (character == "1") || (character == "2") || (character == "3") || (character == "4") || (character == "5") || (character == "6") || (character == "7") || (character == "8") || (character == "9") || {
+            print(counter)
+            if (character == "0") || (character == "1") || (character == "2") || (character == "3") || (character == "4") || (character == "5") || (character == "6") || (character == "7") || (character == "8") || (character == "9") {
                 containsNumber = true
+            }
+            for symbol in symbols {
+                if character == symbol {
+                    containsCharacter = true
+                }
+            }
+            for capitalLetter in capitalLetters {
+                if character == capitalLetter {
+                    containsCapital = true
+                }
             }
         }
         if counter < 8 {
             Error.text = "Password length must be greater than 7."
+            Error.isHidden = false
+            greaterThanSeven = false
+        }
+        if containsNumber == false {
+            Error.text = "Please put a number in your password."
+            Error.isHidden = false
+        }
+        if containsCharacter == false {
+            Error.text = "Please use a symbol in your password."
+            Error.isHidden = false
+        }
+        if containsCapital == false {
+            Error.text = "Please put a capital letter in your password."
+            Error.isHidden = false
+        }
+        if (containsNumber == true) && (greaterThanSeven == true) && (containsCharacter == true) && (containsCapital == true) {
+            return true
+        }
+        else {
             return false
         }
-        
         
     }
     
     func checkValidInputs() -> Bool {
-        if (emptyFields() == false) && (validEmail() == true) && (selectedStudentOrTeacher() == true) && (validYear() == true) && (confirmPassword() == true) {
+        if (emptyFields() == false) && (validEmail() == true) && (selectedStudentOrTeacher() == true) && (validYear() == true) && (confirmPassword() == true) && (validPassword() == true) {
             return true
         }
         else {

@@ -31,7 +31,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
         Successful.isHidden = true
     }
     
-    @IBOutlet weak var StudentEmail: UITextField!
+    @IBOutlet weak var Code: UILabel!
     @IBOutlet weak var Subject: UITextField!
     @IBOutlet weak var Block: UITextField!
     @IBOutlet weak var Set: UITextField!
@@ -39,11 +39,11 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var Successful: UILabel!
     var studentArray = [String]()
     
-    @IBAction func AddStudent(_ sender: Any) {
-        studentArray.append(StudentEmail.text!)
-        self.studentTable.reloadData()
-        StudentEmail.text = ""
+    @IBAction func GenerateCode(_ sender: Any) {
+        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        Code.text = String((0..<8).map{ _ in characters.randomElement()! })
     }
+    
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -78,7 +78,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
                         self.Subject.text = ""
                         self.Block.text = ""
                         self.Set.text = ""
-                        self.StudentEmail.text = ""
+                        self.Code.text = ""
                         self.studentArray.removeAll()
                         self.studentTable.reloadData()
                     }
