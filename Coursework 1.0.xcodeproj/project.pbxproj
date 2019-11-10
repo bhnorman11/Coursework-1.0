@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		54896619F49DC4D2536FF7C0 /* Pods_Coursework_1_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAAC68A11F828CD88E43BF48 /* Pods_Coursework_1_0.framework */; };
+		B5103F0D2378641200A90F78 /* JoinClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5103F0C2378641200A90F78 /* JoinClassViewController.swift */; };
 		B532F4EC21FCB60A00A78153 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B532F4EB21FCB60A00A78153 /* GoogleService-Info.plist */; };
 		B536244821FD12ED00CE166B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536244721FD12ED00CE166B /* LoginViewController.swift */; };
 		B536244A21FD12FD00CE166B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536244921FD12FD00CE166B /* SignUpViewController.swift */; };
@@ -57,6 +58,7 @@
 		8A2FCDBE9B5E9322855A53AF /* Pods-Coursework 1.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coursework 1.0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coursework 1.0/Pods-Coursework 1.0.debug.xcconfig"; sourceTree = "<group>"; };
 		AE5DD1F2E45C4F469AB32BB1 /* Pods_Coursework_1_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coursework_1_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A02D212FEC0D5CA5F9B054 /* Pods-Coursework 1.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coursework 1.0Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coursework 1.0Tests/Pods-Coursework 1.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B5103F0C2378641200A90F78 /* JoinClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinClassViewController.swift; sourceTree = "<group>"; };
 		B532F4EB21FCB60A00A78153 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B536244721FD12ED00CE166B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B536244921FD12FD00CE166B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				B5CD3A4921F1013000078B1B /* AppDelegate.swift */,
 				B5CD3A4B21F1013000078B1B /* ViewController.swift */,
 				B5CD3A4D21F1013000078B1B /* Main.storyboard */,
+				B5103F0C2378641200A90F78 /* JoinClassViewController.swift */,
 				B5DADD0C2233177E009AE50A /* ViewClassesViewController.swift */,
 				B5836210222942F2000D4FBD /* CreateNewClassViewController.swift */,
 				B583620E222842A4000D4FBD /* ViewFeedbackViewController.swift */,
@@ -461,6 +464,7 @@
 				B589596D22022BE500A9DA8A /* MakeSuggestionViewController.swift in Sources */,
 				B5CD3A4A21F1013000078B1B /* AppDelegate.swift in Sources */,
 				B5DADD0D2233177E009AE50A /* ViewClassesViewController.swift in Sources */,
+				B5103F0D2378641200A90F78 /* JoinClassViewController.swift in Sources */,
 				B58959692202220700A9DA8A /* AnswerQuestionsViewController.swift in Sources */,
 				B58362092227567A000D4FBD /* StudentMainViewController.swift in Sources */,
 			);

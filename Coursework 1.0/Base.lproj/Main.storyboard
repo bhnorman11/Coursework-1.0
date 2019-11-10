@@ -48,28 +48,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6m-ab-3Ua" userLabel="ReviewLessonsButton">
-                                <rect key="frame" x="334" y="691" width="445" height="93"/>
+                                <rect key="frame" x="386" y="673" width="340" height="111"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="38"/>
-                                <state key="normal" title="Review Earlier Lessons">
+                                <state key="normal" title="Give Feedback">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="qLg-e4-JDZ" kind="custom" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="ZQD-aE-LRs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH5-Nc-n5w">
-                                <rect key="frame" x="891" y="70" width="181" height="68"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3F6-3a-EVa" userLabel="ReviewLessonsButton">
+                                <rect key="frame" x="39" y="398" width="235" height="111"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="36"/>
-                                <state key="normal" title="Logout">
+                                <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="38"/>
+                                <state key="normal" title="Join Class">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="fI2-sK-TxY"/>
-                                    <action selector="goToLogoutPopUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gql-RP-HEC"/>
+                                    <segue destination="U1s-5y-M2g" kind="show" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="8hX-Zy-F6X"/>
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZi-L6-Sce">
@@ -91,6 +90,19 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH5-Nc-n5w">
+                                <rect key="frame" x="867" y="61" width="181" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="36"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="fI2-sK-TxY"/>
+                                    <action selector="goToLogoutPopUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gql-RP-HEC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -208,7 +220,62 @@
                     <viewLayoutGuide key="safeArea" id="OGp-Dr-b6c"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1101.7985611510792" y="1744.6043165467627"/>
+            <point key="canvasLocation" x="1102" y="1751"/>
+        </scene>
+        <!--Join Class View Controller-->
+        <scene sceneID="Nz6-Zn-Sh0">
+            <objects>
+                <viewController id="U1s-5y-M2g" customClass="JoinClassViewController" customModule="Coursework_1_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6of-Zk-Bz5">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z09-oJ-zw7">
+                                <rect key="frame" x="403" y="250" width="306" height="126"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7s-Ga-trV">
+                                <rect key="frame" x="454" y="402" width="204" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BackArrow" translatesAutoresizingMaskIntoConstraints="NO" id="Jl5-z5-JO0">
+                                <rect key="frame" x="20" y="20" width="63" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlY-NF-jaL">
+                                <rect key="frame" x="20" y="20" width="63" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" customClass="UnwindScaleSegue" customModule="Coursework_1_0" customModuleProvider="target" id="fzF-Dy-h9Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9S-D8-QLP">
+                                <rect key="frame" x="437" y="526" width="238" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="36"/>
+                                <state key="normal" title="Continue" backgroundImage="BlackBorder"/>
+                                <connections>
+                                    <action selector="Continue:" destination="U1s-5y-M2g" eventType="touchUpInside" id="8MK-Nl-eGZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BMc-kn-tzg"/>
+                    </view>
+                    <connections>
+                        <outlet property="Code" destination="v7s-Ga-trV" id="0tL-vG-bFp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCX-jN-7nV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1101.7985611510792" y="2482.7338129496407"/>
         </scene>
         <!--Report Problem View Controller-->
         <scene sceneID="F7d-k8-2nB">
@@ -1129,7 +1196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aT-Dh-XLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1110.9712230215828" y="-1352.517985611511"/>
+            <point key="canvasLocation" x="1102" y="-1353"/>
         </scene>
         <!--Create New Class View Controller-->
         <scene sceneID="DiP-Ez-C0g">
@@ -1486,7 +1553,7 @@
                     <viewLayoutGuide key="safeArea" id="SiB-AX-FbO"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1101.7985611510792" y="-229.49640287769785"/>
+            <point key="canvasLocation" x="1102" y="-229"/>
         </scene>
     </scenes>
     <resources>
@@ -1497,8 +1564,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="CjY-Pa-OIG"/>
         <segue reference="wYJ-Jw-rKL"/>
-        <segue reference="7KL-Zn-cPd"/>
+        <segue reference="4I0-6d-8ll"/>
         <segue reference="ZQD-aE-LRs"/>
-        <segue reference="p7l-va-h9w"/>
+        <segue reference="fzF-Dy-h9Q"/>
     </inferredMetricsTieBreakers>
 </document>
