@@ -134,7 +134,6 @@ class SignUpViewController: UIViewController {
         let capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         for character in Password.text! {
             counter += 1
-            print(counter)
             if (character == "0") || (character == "1") || (character == "2") || (character == "3") || (character == "4") || (character == "5") || (character == "6") || (character == "7") || (character == "8") || (character == "9") {
                 containsNumber = true
             }
@@ -152,21 +151,26 @@ class SignUpViewController: UIViewController {
         if counter < 8 {
             Error.text = "Password length must be greater than 7."
             Error.isHidden = false
-            greaterThanSeven = false
+            print("noice")
         }
         if containsNumber == false {
             Error.text = "Please put a number in your password."
+            print("yep")
             Error.isHidden = false
         }
         if containsCharacter == false {
             Error.text = "Please use a symbol in your password."
+            print("aight")
             Error.isHidden = false
         }
         if containsCapital == false {
             Error.text = "Please put a capital letter in your password."
+            print("boomer")
             Error.isHidden = false
         }
-        if (containsNumber == true) && (greaterThanSeven == true) && (containsCharacter == true) && (containsCapital == true) {
+        print("ok")
+        if (containsNumber == true) && (counter >= 8) && (containsCharacter == true) && (containsCapital == true) {
+            print("yup")
             return true
         }
         else {
@@ -177,6 +181,7 @@ class SignUpViewController: UIViewController {
     
     func checkValidInputs() -> Bool {
         if (emptyFields() == false) && (validEmail() == true) && (selectedStudentOrTeacher() == true) && (validYear() == true) && (confirmPassword() == true) && (validPassword() == true) {
+            print("hello")
             return true
         }
         else {
@@ -186,6 +191,8 @@ class SignUpViewController: UIViewController {
     
     @IBAction func SignUp(_ sender: Any) {
         if checkValidInputs() == true {
+            print("working")
+            
             if Student.alpha == 1.0 {
                 Auth.auth().createUser(withEmail: Email.text!, password: Password.text!, completion: {(user, error) in
                     if error != nil{

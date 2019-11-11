@@ -14,17 +14,61 @@ class JoinClassViewController: UIViewController {
         super.viewDidLoad()
         
         Error.isHidden = true
+        effect = VisualEffectView.effect
+        VisualEffectView.effect = nil
+        PopUpView.layer.cornerRadius = 5
+        VisualEffectView.isHidden = true
     }
     
+    
+    @IBOutlet weak var VisualEffectView: UIVisualEffectView!
+    @IBOutlet var PopUpView: UIView!
+    var effect: UIVisualEffect!
     @IBOutlet weak var Code: UITextField!
     @IBOutlet weak var Error: UILabel!
     
-    @IBAction func Continue(_ sender: Any) {
+    func animateIn () {
+        self.view.addSubview(PopUpView)
+        PopUpView.center = self.view.center
+        self.VisualEffectView.effect = nil
+        PopUpView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        PopUpView.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.VisualEffectView.isHidden = false
+            self.PopUpView.alpha = 1
+            self.PopUpView.transform = CGAffineTransform.identity
+        }
     }
     
-    func validateEntry(){
+    func animateOut () {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.PopUpView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.PopUpView.alpha = 0
+            
+        }) {(success:Bool) in
+            self.PopUpView.removeFromSuperview()
+        }
+    }
+    
+    @IBAction func Continue(_ sender: Any) {
+        if validateEntry() == true {
+            animateIn()
+        }
+    }
+    @IBAction func DismissPopUp(_ sender: Any) {
+        animateOut()
+        VisualEffectView.isUserInteractionEnabled = false
+        self.VisualEffectView.isHidden = true
+    }
+    
+    func validateEntry() -> Bool{
         if Code.text!.count != 8 {
             Error.isHidden = false
+            return false
+        }
+        else{
+            return true
         }
     }
 
