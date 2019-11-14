@@ -21,6 +21,7 @@ class JoinClassViewController: UIViewController {
     }
     
     
+    @IBOutlet weak var NoClassFound: UILabel!
     @IBOutlet weak var VisualEffectView: UIVisualEffectView!
     @IBOutlet var PopUpView: UIView!
     var effect: UIVisualEffect!

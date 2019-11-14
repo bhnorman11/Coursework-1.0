@@ -10,40 +10,68 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CreateNewClassViewController: UIViewController  {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return studentArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath)
-        cell.textLabel?.text = studentArray[indexPath.row]
-        return cell
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         Successful.isHidden = true
+        effect = VisualEffectView.effect
+        VisualEffectView.effect = nil
+        PopUpView.layer.cornerRadius = 5
+        VisualEffectView.isHidden = true
     }
     
+    @IBOutlet weak var VisualEffectView: UIVisualEffectView!
+    @IBOutlet var PopUpView: UIView!
     @IBOutlet weak var Code: UILabel!
     @IBOutlet weak var Subject: UITextField!
     @IBOutlet weak var Block: UITextField!
     @IBOutlet weak var Set: UITextField!
-    @IBOutlet weak var studentTable: UITableView!
     @IBOutlet weak var Successful: UILabel!
     var studentArray = [String]()
+    var effect:UIVisualEffect!
+    
+    func animateIn () {
+        self.view.addSubview(PopUpView)
+        PopUpView.center = self.view.center
+        self.VisualEffectView.effect = nil
+        PopUpView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        PopUpView.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.VisualEffectView.isHidden = false
+            self.PopUpView.alpha = 1
+            self.PopUpView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func animateOut () {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.PopUpView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.PopUpView.alpha = 0
+            
+        }) {(success:Bool) in
+            self.PopUpView.removeFromSuperview()
+        }
+    }
+    
+    @IBAction func DismissPopUp(_ sender: Any) {
+        animateOut()
+        VisualEffectView.isUserInteractionEnabled = false
+        self.VisualEffectView.isHidden = true
+    }
+    
     
     @IBAction func GenerateCode(_ sender: Any) {
         let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         Code.text = String((0..<8).map{ _ in characters.randomElement()! })
     }
     
+    
+    @IBAction func Continue(_ sender: Any) {
+        animateIn()
+    }
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -55,7 +83,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
             "Subject": Subject.text!,
             "Set": Set.text!,
             "Active Set": true
-        ])
+            ])
         { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -67,7 +95,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
         for i in 0...studentArray.count - 1 {
             db.collection("Users").document(email!).collection("Classes").document(Set.text!).collection("Students").document(studentArray[i]).setData([
                 "Email": studentArray[i],
-            ])
+                ])
             { err in
                 if let err = err {
                     print("Error writing document: \(err)")
@@ -79,14 +107,11 @@ class CreateNewClassViewController: UIViewController, UITableViewDelegate, UITab
                         self.Block.text = ""
                         self.Set.text = ""
                         self.Code.text = ""
-                        self.studentArray.removeAll()
-                        self.studentTable.reloadData()
                     }
                     
                 }
             }
         }
-        
     }
     
 }
