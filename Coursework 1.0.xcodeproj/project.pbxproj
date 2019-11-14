@@ -157,14 +157,14 @@
 		B5CD3A4821F1013000078B1B /* Coursework 1.0 */ = {
 			isa = PBXGroup;
 			children = (
-				B5CD3A4921F1013000078B1B /* AppDelegate.swift */,
-				B5CD3A4B21F1013000078B1B /* ViewController.swift */,
 				B5CD3A4D21F1013000078B1B /* Main.storyboard */,
-				B5103F0C2378641200A90F78 /* JoinClassViewController.swift */,
+				B5CD3A4921F1013000078B1B /* AppDelegate.swift */,
 				B5836210222942F2000D4FBD /* CreateNewClassViewController.swift */,
-				B5DADD0C2233177E009AE50A /* ViewClassesViewController.swift */,
-				B583620E222842A4000D4FBD /* ViewFeedbackViewController.swift */,
 				B583620C2227E6A3000D4FBD /* CustomSegue.swift */,
+				B5103F0C2378641200A90F78 /* JoinClassViewController.swift */,
+				B5DADD0C2233177E009AE50A /* ViewClassesViewController.swift */,
+				B5CD3A4B21F1013000078B1B /* ViewController.swift */,
+				B583620E222842A4000D4FBD /* ViewFeedbackViewController.swift */,
 				B58362082227567A000D4FBD /* StudentMainViewController.swift */,
 				B583620A22275689000D4FBD /* TeacherMainViewController.swift */,
 				B589597022022D0600A9DA8A /* ChooseReviewViewController.swift */,

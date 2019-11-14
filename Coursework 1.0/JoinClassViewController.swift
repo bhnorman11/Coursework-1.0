@@ -55,6 +55,7 @@ class JoinClassViewController: UIViewController {
     @IBAction func Continue(_ sender: Any) {
         if validateEntry() == true {
             animateIn()
+            
         }
     }
     @IBAction func DismissPopUp(_ sender: Any) {

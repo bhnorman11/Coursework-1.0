@@ -15,7 +15,7 @@ class CreateNewClassViewController: UIViewController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Successful.isHidden = true
+        Error.isHidden = true
         effect = VisualEffectView.effect
         VisualEffectView.effect = nil
         PopUpView.layer.cornerRadius = 5
@@ -28,14 +28,15 @@ class CreateNewClassViewController: UIViewController  {
     @IBOutlet weak var Subject: UITextField!
     @IBOutlet weak var Block: UITextField!
     @IBOutlet weak var Set: UITextField!
-    @IBOutlet weak var Successful: UILabel!
     var studentArray = [String]()
     var effect:UIVisualEffect!
     
+    @IBOutlet weak var Error: UILabel!
     @IBOutlet weak var PopUpSet: UILabel!
     @IBOutlet weak var PopUpSubject: UILabel!
     @IBOutlet weak var PopUpYear: UILabel!
     @IBOutlet weak var PopUpStudents: UILabel!
+    @IBOutlet weak var PopUpCode: UILabel!
     
     func animateIn () {
         self.view.addSubview(PopUpView)
@@ -73,13 +74,16 @@ class CreateNewClassViewController: UIViewController  {
         Code.text = String((0..<8).map{ _ in characters.randomElement()! })
     }
     
+    let db = Firestore.firestore()
+    let user = Auth.auth().currentUser
     
     @IBAction func Continue(_ sender: Any) {
-        if Code.text != ""{
+        if validContinue() == true{
             animateIn()
             PopUpSubject.text = Subject.text
             PopUpSet.text = Set.text
             PopUpYear.text = Block.text
+            PopUpCode.text = Code.text
             let email = user?.email
             db.collection("Codes").document(Code.text!).setData([
                 "Block": Block.text!,
@@ -97,15 +101,29 @@ class CreateNewClassViewController: UIViewController  {
             }
         }
         else {
-            Successful.text = "Please generate a code before continuing."
-            Successful.textColor = .red
-            Successful.isHidden = false
+            Error.text = "Please fill in all information."
+            Error.isHidden = false
         }
         
     }
     
-    let db = Firestore.firestore()
-    let user = Auth.auth().currentUser
+    func validContinue() -> Bool {
+        if Code.text == "" {
+            return false
+        }
+        if Subject.text == "" {
+            return false
+        }
+        if Set.text == "" {
+            return false
+        }
+        if Block.text == "" {
+            return false
+        }
+        else {
+            return true
+        }
+    }
     
     @IBAction func CreateClass(_ sender: Any) {
         let email = user?.email
