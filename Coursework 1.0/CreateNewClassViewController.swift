@@ -32,6 +32,11 @@ class CreateNewClassViewController: UIViewController  {
     var studentArray = [String]()
     var effect:UIVisualEffect!
     
+    @IBOutlet weak var PopUpSet: UILabel!
+    @IBOutlet weak var PopUpSubject: UILabel!
+    @IBOutlet weak var PopUpYear: UILabel!
+    @IBOutlet weak var PopUpStudents: UILabel!
+    
     func animateIn () {
         self.view.addSubview(PopUpView)
         PopUpView.center = self.view.center
@@ -70,7 +75,33 @@ class CreateNewClassViewController: UIViewController  {
     
     
     @IBAction func Continue(_ sender: Any) {
-        animateIn()
+        if Code.text != ""{
+            animateIn()
+            PopUpSubject.text = Subject.text
+            PopUpSet.text = Set.text
+            PopUpYear.text = Block.text
+            let email = user?.email
+            db.collection("Codes").document(Code.text!).setData([
+                "Block": Block.text!,
+                "Subject": Subject.text!,
+                "Set": Set.text!,
+                "Teacher email": email!
+                ])
+            { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                    
+                }
+            }
+        }
+        else {
+            Successful.text = "Please generate a code before continuing."
+            Successful.textColor = .red
+            Successful.isHidden = false
+        }
+        
     }
     
     let db = Firestore.firestore()
@@ -92,6 +123,7 @@ class CreateNewClassViewController: UIViewController  {
                 
             }
         }
+        /*
         for i in 0...studentArray.count - 1 {
             db.collection("Users").document(email!).collection("Classes").document(Set.text!).collection("Students").document(studentArray[i]).setData([
                 "Email": studentArray[i],
@@ -111,7 +143,7 @@ class CreateNewClassViewController: UIViewController  {
                     
                 }
             }
-        }
+        }*/
     }
     
 }

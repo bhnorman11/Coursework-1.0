@@ -1310,7 +1310,7 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Class created!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qiv-oc-mMJ">
-                                <rect key="frame" x="478" y="707" width="157" height="30"/>
+                                <rect key="frame" x="350" y="650" width="500" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1402,7 +1402,11 @@
                     <connections>
                         <outlet property="Block" destination="0Zn-Jh-flc" id="csC-jO-nsA"/>
                         <outlet property="Code" destination="VtZ-Gv-q27" id="P1t-4d-kmf"/>
+                        <outlet property="PopUpSet" destination="vMj-Ru-Fb1" id="oGE-rp-cwX"/>
+                        <outlet property="PopUpStudents" destination="15B-So-i6l" id="rkm-HL-iv7"/>
+                        <outlet property="PopUpSubject" destination="wVl-4Z-BwN" id="1d9-OY-h83"/>
                         <outlet property="PopUpView" destination="SjP-OH-Zv9" id="7h8-hD-wD5"/>
+                        <outlet property="PopUpYear" destination="jop-iz-BMa" id="hQZ-Op-Zit"/>
                         <outlet property="Set" destination="VSW-na-yfF" id="SCc-vf-fJK"/>
                         <outlet property="Subject" destination="YHe-Z3-q5i" id="mU2-SK-GFa"/>
                         <outlet property="Successful" destination="Qiv-oc-mMJ" id="cBA-PL-be3"/>
@@ -1469,6 +1473,13 @@
                             <color key="textColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPz-Tk-Ghm">
+                            <rect key="frame" x="450" y="378" width="77" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="30"/>
+                            <color key="textColor" red="0.58076978030000004" green="0.11740905409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haG-V1-Kph">
                             <rect key="frame" x="277" y="380" width="147" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1497,6 +1508,13 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="30"/>
                             <color key="textColor" red="0.0" green="0.061501125429999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRp-8O-MwE">
+                            <rect key="frame" x="535" y="373" width="145" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="25"/>
+                            <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
