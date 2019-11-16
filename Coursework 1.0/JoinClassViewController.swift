@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class JoinClassViewController: UIViewController {
 
@@ -27,6 +29,14 @@ class JoinClassViewController: UIViewController {
     var effect: UIVisualEffect!
     @IBOutlet weak var Code: UITextField!
     @IBOutlet weak var Error: UILabel!
+    @IBOutlet weak var PopUpTeacher: UILabel!
+    @IBOutlet weak var PopUpTeacherLabel: UILabel!
+    @IBOutlet weak var PopUpYear: UILabel!
+    @IBOutlet weak var PopUpYearLabel: UILabel!
+    @IBOutlet weak var PopUpSubject: UILabel!
+    @IBOutlet weak var PopUpSubjectLabel: UILabel!
+    @IBOutlet weak var PopUpSet: UILabel!
+    @IBOutlet weak var PopUpSetLabel: UILabel!
     
     func animateIn () {
         self.view.addSubview(PopUpView)
@@ -52,12 +62,46 @@ class JoinClassViewController: UIViewController {
         }
     }
     
+    let db = Firestore.firestore()
+    let user = Auth.auth().currentUser
+    
     @IBAction func Continue(_ sender: Any) {
         if validateEntry() == true {
             animateIn()
-            
+            let docRef = self.db.collection("Codes").document(Code.text!)
+            docRef.getDocument(source: .cache) { (document, error) in
+                if let document = document{
+                    self.PopUpTeacher.text = (document.get("Teacher email") as! String)
+                    self.PopUpTeacher.isHidden = false
+                    self.PopUpTeacherLabel.isHidden = false
+                    self.PopUpYear.text = (document.get("Block") as! String)
+                    self.PopUpYear.isHidden = false
+                    self.PopUpYearLabel.isHidden = false
+                    self.PopUpSet.text = (document.get("Set") as! String)
+                    self.PopUpSet.isHidden = false
+                    self.PopUpSetLabel.isHidden = false
+                    self.PopUpSubject.text = (document.get("Subject") as! String)
+                    self.PopUpSubject.isHidden = false
+                    self.PopUpSubjectLabel.isHidden = false
+                    self.NoClassFound.isHidden = true
+                    
+                }
+                else{
+                    print("Document does not exist in firestore")
+                    self.NoClassFound.isHidden = false
+                    self.PopUpTeacher.isHidden = true
+                    self.PopUpTeacherLabel.isHidden = true
+                    self.PopUpSet.isHidden = true
+                    self.PopUpSetLabel.isHidden = true
+                    self.PopUpSubject.isHidden = true
+                    self.PopUpSubjectLabel.isHidden = true
+                    self.PopUpYear.isHidden = true
+                    self.PopUpYearLabel.isHidden = true
+                }
+            }
         }
     }
+
     @IBAction func DismissPopUp(_ sender: Any) {
         animateOut()
         VisualEffectView.isUserInteractionEnabled = false
