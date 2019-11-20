@@ -397,6 +397,19 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IwN-pC-mCS">
+                            <rect key="frame" x="278" y="377" width="145" height="53"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.58076978030000004" green="0.11740905409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="36"/>
+                            <state key="normal" title="Join">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="JoinClass:" destination="U1s-5y-M2g" eventType="touchUpInside" id="4Qt-7w-bDw"/>
+                                <action selector="SignUp:" destination="bDk-1J-EuT" eventType="touchUpInside" id="jO3-Jy-d9C"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <viewLayoutGuide key="safeArea" id="Qew-FS-TBJ"/>
@@ -1560,7 +1573,7 @@
                                 <action selector="dismissPopUp:" destination="WX2-GC-dmK" eventType="touchUpInside" id="xli-NT-uMH"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15B-So-i6l">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15B-So-i6l">
                             <rect key="frame" x="242" y="89" width="438" height="273"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -1797,8 +1810,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="CjY-Pa-OIG"/>
         <segue reference="Luv-9s-Zsm"/>
-        <segue reference="4I0-6d-8ll"/>
+        <segue reference="ZRE-Qk-8cQ"/>
         <segue reference="ZQD-aE-LRs"/>
-        <segue reference="p7l-va-h9w"/>
+        <segue reference="fzF-Dy-h9Q"/>
     </inferredMetricsTieBreakers>
 </document>

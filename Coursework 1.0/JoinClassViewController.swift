@@ -108,6 +108,28 @@ class JoinClassViewController: UIViewController {
         self.VisualEffectView.isHidden = true
     }
     
+    @IBAction func JoinClass(_ sender: Any) {
+        db.collection("Codes").document(Code.text!).collection("Classes").document(Set.text!).collection("Students").document(studentArray[i]).setData([
+            "Email": email!
+            ])
+        { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+                if i == self.studentArray.count - 1 {
+                    self.Successful.isHidden = false
+                    self.Subject.text = ""
+                    self.Block.text = ""
+                    self.Set.text = ""
+                    self.Code.text = ""
+                }
+                
+            }
+        }
+    }
+    
+    
     func validateEntry() -> Bool{
         if Code.text!.count != 8 {
             Error.isHidden = false
