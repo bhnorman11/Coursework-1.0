@@ -29,7 +29,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var Error: UILabel!
     @IBOutlet weak var ConfirmPassword: UITextField!
     
-    func emptyFields() -> Bool {
+    func emptyFields() -> Bool { 
         if Email.text == "" {
             Error.text = "Please input your email address."
             Error.isHidden = false
@@ -68,22 +68,22 @@ class SignUpViewController: UIViewController {
     func validEmail() -> Bool {
         var atSymbol = false
         var fullStop = false
-        for character in Email.text!.characters {
-            if character == "@"{
+        for character in Email.text! {
+            if character == "@"{ //format check for @ symbol
                 atSymbol = true
             }
-            else if character == "." {
+            else if character == "." { //format check for .
                 fullStop = true
             }
         }
         if atSymbol == false {
             Error.text = "Please include an @ symbol in your email."
-            Error.isHidden = false
+            Error.isHidden = false //displayed error message
             return false
         }
         else if fullStop == false {
             Error.text = "Please include a full stop in your email."
-            Error.isHidden = false
+            Error.isHidden = false //displayed error message
             return false
         }
         else {
@@ -92,7 +92,7 @@ class SignUpViewController: UIViewController {
     }
     
     func selectedStudentOrTeacher () -> Bool {
-        if (Student.alpha == 1.0) && (Teacher.alpha == 1.0) {
+        if (Student.alpha == 1.0) && (Teacher.alpha == 1.0) { //ensures that at least one of student or teacher has been selected
             Error.text = "Please select whether you're a student or a teacher."
             Error.isHidden = false
             return false
@@ -103,9 +103,9 @@ class SignUpViewController: UIViewController {
     }
     
     func validYear() -> Bool {
-        if (Block.text != "13") && (Block.text != "12") && (Block.text != "11") && (Block.text != "10") && (Block.text != "9") && (Teacher.alpha != 1.0) {
+        if (Block.text != "13") && (Block.text != "12") && (Block.text != "11") && (Block.text != "10") && (Block.text != "9") && (Teacher.alpha != 1.0) { //performs format check
             Error.text = "Please select 13, 12, 11, 10 or 9 as your year."
-            Error.isHidden = false
+            Error.isHidden = false //error message is displayed
             return false
         }
         else {
@@ -114,12 +114,12 @@ class SignUpViewController: UIViewController {
     }
     
     func confirmPassword() -> Bool{
-        if ConfirmPassword.text == Password.text {
+        if ConfirmPassword.text == Password.text { //performs format check on the re-entered passwords, ensuring they match
             return true
         }
         else{
             Error.text = "Your passwords do not match."
-            Error.isHidden = false
+            Error.isHidden = false //displays error message
             return false
         }
     }
@@ -127,62 +127,54 @@ class SignUpViewController: UIViewController {
     func validPassword() -> Bool{
         var counter = 0
         var containsNumber = false
-        var greaterThanSeven = false
         var containsCharacter = false
         var containsCapital = false
         let symbols = "!@#$%^&*()-_=+][{};:'/.,<>`~"
         let capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         for character in Password.text! {
             counter += 1
-            if (character == "0") || (character == "1") || (character == "2") || (character == "3") || (character == "4") || (character == "5") || (character == "6") || (character == "7") || (character == "8") || (character == "9") {
+            if (character == "0") || (character == "1") || (character == "2") || (character == "3") || (character == "4") || (character == "5") || (character == "6") || (character == "7") || (character == "8") || (character == "9") { //performs format check for numbers
                 containsNumber = true
             }
             for symbol in symbols {
-                if character == symbol {
+                if character == symbol { //performs format check for symbols
                     containsCharacter = true
                 }
             }
             for capitalLetter in capitalLetters {
-                if character == capitalLetter {
+                if character == capitalLetter { //performs format check for capital letters
                     containsCapital = true
                 }
             }
         }
-        if counter < 8 {
+        if counter < 8 { //performs length check on password
             Error.text = "Password length must be greater than 7."
             Error.isHidden = false
-            print("noice")
         }
         if containsNumber == false {
             Error.text = "Please put a number in your password."
-            print("yep")
             Error.isHidden = false
         }
         if containsCharacter == false {
             Error.text = "Please use a symbol in your password."
-            print("aight")
             Error.isHidden = false
         }
         if containsCapital == false {
             Error.text = "Please put a capital letter in your password."
-            print("boomer")
             Error.isHidden = false
         }
-        print("ok")
-        if (containsNumber == true) && (counter >= 8) && (containsCharacter == true) && (containsCapital == true) {
-            print("yup")
+        if (containsNumber == true) && (counter >= 8) && (containsCharacter == true) && (containsCapital == true) { //returns true if all password conditions are met
             return true
         }
         else {
-            return false
+            return false //otherwise the password is declared invalid
         }
         
     }
     
     func checkValidInputs() -> Bool {
         if (emptyFields() == false) && (validEmail() == true) && (selectedStudentOrTeacher() == true) && (validYear() == true) && (confirmPassword() == true) && (validPassword() == true) {
-            print("hello")
-            return true
+            return true //ensures that all fields on sign up have been entered validly before proceeding.
         }
         else {
             return false
@@ -191,18 +183,16 @@ class SignUpViewController: UIViewController {
     
     @IBAction func SignUp(_ sender: Any) {
         if checkValidInputs() == true {
-            print("working")
-            
-            if Student.alpha == 1.0 {
-                Auth.auth().createUser(withEmail: Email.text!, password: Password.text!, completion: {(user, error) in
+            if Student.alpha == 1.0 { //checks if student has been selected
+                Auth.auth().createUser(withEmail: Email.text!, password: Password.text!, completion: {(user, error) in //creates a user with the email address given on sign up
                     if error != nil{
-                        print(error!)
+                        print(error!) //process is terminated if an error is discovered
                     }else{
-                        self.db.collection("Users").document(self.Email.text!).setData([
+                        self.db.collection("Users").document(self.Email.text!).setData([ //creates a new document and sets the information to the data entered
                             "Student": true,
                             "First Name": self.FirstName.text!,
                             "Second Name": self.LastName.text!,
-                            "Block": self.Block.text!])
+                            "Block": self.Block.text!]) //since student has been selected, year goes to Firestore
                         { err in
                             if let err = err {
                                 print("Error updating document: \(err)")
@@ -212,9 +202,9 @@ class SignUpViewController: UIViewController {
                         }
                     }
                 })
-                self.performSegue(withIdentifier: "StudentSignUp", sender: self)
+                self.performSegue(withIdentifier: "StudentSignUp", sender: self) //performs a segue to the student home page
             }
-            else if Student.alpha != 1.0 {
+            else if Student.alpha != 1.0 { //same code as above
                 Auth.auth().createUser(withEmail: Email.text!, password: Password.text!, completion: {(user, error) in
                     if error != nil{
                         print(error!)
@@ -222,7 +212,7 @@ class SignUpViewController: UIViewController {
                         self.db.collection("Users").document(self.Email.text!).setData([
                             "Student": false,
                             "First Name": self.FirstName.text!,
-                            "Last Name": self.LastName.text!])
+                            "Last Name": self.LastName.text!]) //teacher has no year group, so not stored in Firestore
                         { err in
                             if let err = err {
                                 print("Error updating document: \(err)")
@@ -232,7 +222,7 @@ class SignUpViewController: UIViewController {
                         }
                     }
                 })
-                self.performSegue(withIdentifier: "TeacherSignUp", sender: self)
+                self.performSegue(withIdentifier: "TeacherSignUp", sender: self) //performs segue to the teacher home page
             }
         }
     }

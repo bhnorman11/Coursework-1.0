@@ -26,10 +26,10 @@ class ReportProblemViewController: UIViewController {
     let db = Firestore.firestore()
     
     func EmptyField() -> Bool{
-        if Problem.text == "" {
+        if Problem.text == "" { //performs a presence check
             Successful.textColor = .red
             Successful.text = "Please fill in what problem you have."
-            Successful.isHidden = false
+            Successful.isHidden = false //displays error message
             return true
         }
         else {
@@ -40,9 +40,9 @@ class ReportProblemViewController: UIViewController {
     func checkProblemTooLong() -> Bool{
         var counter = 0
         for _ in Problem.text! {
-            counter += 1
+            counter += 1 //finds the length of the entered text
         }
-        if counter > 100 {
+        if counter > 100 { //if it exceeds 100 characters, an error message is displayed
             Successful.textColor = .red
             Successful.text = "Maximum: 150 characters."
             Successful.isHidden = false
@@ -54,9 +54,9 @@ class ReportProblemViewController: UIViewController {
     }
     
     @IBAction func sendData(_ sender: Any) {
-        if (checkProblemTooLong() == false) && (EmptyField() == false) {
-            let email = user?.email
-            db.collection("Problems").document(email!).setData([
+        if (checkProblemTooLong() == false) && (EmptyField() == false) { //ensures checks have been made
+            let email = user?.email //sets email to email used to login/sign up with
+            db.collection("Problems").document(email!).setData([ //sets new data into Problems collection
                 "Problem": Problem.text!
             ]) { err in
                 if let err = err {
@@ -65,7 +65,7 @@ class ReportProblemViewController: UIViewController {
                     print("Document successfully written!")
                     self.Successful.textColor = .blue
                     self.Successful.text = "Problem reported!"
-                    self.Successful.isHidden = false
+                    self.Successful.isHidden = false //successful message appears 
                 }
             }
         }

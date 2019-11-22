@@ -73,42 +73,41 @@ class StudentMainViewController: UIViewController {
     }
     
     func animateInSettings () {
-        self.view.addSubview(SettingsView)
+        self.view.addSubview(SettingsView) //adds a new subview
         SettingsView.center = self.view.center
-        
-        SettingsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        SettingsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3) //applies the tranformation to the pop up setting
         SettingsView.alpha = 0
         
-        UIView.animate(withDuration: 0.4) {
-            self.VisualEffectView.isHidden = false
-            self.SettingsView.alpha = 1
+        UIView.animate(withDuration: 0.4) { //fade duration of 0.4 seconds
+            self.VisualEffectView.isHidden = false //shows the visual effect (blur)
+            self.SettingsView.alpha = 1 //pop up becomes visible by changing the alpha
             self.SettingsView.transform = CGAffineTransform.identity
         }
     }
     
     func animateOutSettings () {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.SettingsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-            self.SettingsView.alpha = 0
-            self.VisualEffectView.effect = nil
+        UIView.animate(withDuration: 0.3, animations: { //fades out a bit faster
+            self.SettingsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3) //reapplies the transition
+            self.SettingsView.alpha = 0 //settings view "disappears" from main view
+            self.VisualEffectView.effect = nil //ensures that the visual effect is completely removed to allow interaction with main code
         }) {(success:Bool) in
-            self.SettingsView.removeFromSuperview()
+            self.SettingsView.removeFromSuperview() //completely remove any interactions
         }
     }
     
     @IBOutlet var SettingsView: UIView!
     
     @IBAction func goToSettingsPopUp(_ sender: Any) {
-        animateInSettings()
-        VisualEffectView.isUserInteractionEnabled = true
+        animateInSettings() //calles the animate in animation
+        VisualEffectView.isUserInteractionEnabled = true //allows interaction with the visual effect
     }
     
     @IBAction func dismissSettings(_ sender: Any) {
-        animateOutSettings()
-        VisualEffectView.isUserInteractionEnabled = false
-        self.VisualEffectView.isHidden = true
-        LogoutView.isHidden = true
-        LogoutView.isUserInteractionEnabled = false
+        animateOutSettings() //calles the animate out
+        VisualEffectView.isUserInteractionEnabled = false //disables interaction
+        self.VisualEffectView.isHidden = true //hides the visual effect to stop blur effect remaining
+        LogoutView.isHidden = true //hides the logout view
+        LogoutView.isUserInteractionEnabled = false //stops any interaction with the logout view that may block the settings view
     }
     
 }

@@ -30,8 +30,8 @@ class LoginViewController: UIViewController {
     var studentType = false
     
     func checkFieldsEmpty() -> Bool{
-        if (Email.text == "" ) || (Password.text == "") {
-            Error.text = "Please fill in all spaces."
+        if (Email.text == "" ) || (Password.text == "") { //presence check for email and password
+            Error.text = "Please fill in all spaces." //error message is displayed
             Error.isHidden = false
             return false
         }
@@ -43,11 +43,11 @@ class LoginViewController: UIViewController {
     func checkEmail() -> Bool {
         var atSymbol = false
         var fullStop = false
-        for character in Email.text!.characters {
-            if character == "@" {
+        for character in Email.text! {
+            if character == "@" { //format check for @ symbol
                 atSymbol = true
             }
-            else if character == "." {
+            else if character == "." { //format check for . symbol
                 fullStop = true
             }
         }
@@ -56,32 +56,32 @@ class LoginViewController: UIViewController {
         }
         else {
             Error.text = "Please have an @ and full stop in your email."
-            Error.isHidden = false
+            Error.isHidden = false //displays error message
             return false
         }
     }
     
     @IBAction func Login(_ sender: Any) {
-        if (checkFieldsEmpty() == true) && (checkEmail() == true){
+        if (checkFieldsEmpty() == true) && (checkEmail() == true){ //ensures all inputs are valid before allowing a login
             Auth.auth().signIn(withEmail: (Email.text!), password: (Password.text!)) { (user, error) in
                 if error != nil{
                     print(error!)
-                    self.Error.isHidden = false
+                    self.Error.isHidden = false //error message is displayed if any errors are encountered
                 }else{
                     let email = self.Email.text!
-                    let docRef = self.db.collection("Users").document(email)
+                    let docRef = self.db.collection("Users").document(email) //creates a document reference in order to reference and read a document in Firestore
                     docRef.getDocument(source: .cache) { (document, error) in
                         if let document = document{
-                            self.studentType = (document.get("Student") as! Bool)
+                            self.studentType = (document.get("Student") as! Bool) //reads the studentType field in Firestore
                             if self.studentType == true {
-                                self.performSegue(withIdentifier: "StudentMain", sender: self)
+                                self.performSegue(withIdentifier: "StudentMain", sender: self)//performs the segue to the student home page if student = true
                             }
                             else if self.studentType == false {
-                                self.performSegue(withIdentifier: "TeacherMain", sender: self)
+                                self.performSegue(withIdentifier: "TeacherMain", sender: self) //else goes to the teacher home page
                             }
                         }
                         else{
-                            print("Document does not exist in firestore")
+                            print("Document does not exist in firestore") //the case when the document does not exist
                         }
                     }
                 }

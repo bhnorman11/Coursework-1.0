@@ -68,6 +68,10 @@ class CreateNewClassViewController: UIViewController  {
         self.VisualEffectView.isHidden = true
     }
     
+    var StudentEmail = ""
+    
+
+    
     
     @IBAction func GenerateCode(_ sender: Any) {
         let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -127,11 +131,11 @@ class CreateNewClassViewController: UIViewController  {
     
     @IBAction func CreateClass(_ sender: Any) {
         let email = user?.email
-        db.collection("Users").document(email!).collection("Classes").document(Set.text!).setData([
+        db.collection("Users").document(email!).collection("Classes").document(Set.text!).setData([ //creates a new set within the collection of classes, which is within the collection of users
             "Block": Block.text!,
             "Subject": Subject.text!,
             "Set": Set.text!,
-            "Active Set": true
+            "Active Set": true //determines if a set is still in use (will become false after a year)
             ])
         { err in
             if let err = err {
@@ -141,27 +145,26 @@ class CreateNewClassViewController: UIViewController  {
                 
             }
         }
-        /*
+        
         for i in 0...studentArray.count - 1 {
-            db.collection("Users").document(email!).collection("Classes").document(Set.text!).collection("Students").document(studentArray[i]).setData([
-                "Email": studentArray[i],
+            db.collection("Users").document(email!).collection("Classes").document(Set.text!).collection("Students").document(studentArray[i]).setData([ //within this created class a collection of students is created
+                "Email": studentArray[i] //each student email is then added
                 ])
             { err in
                 if let err = err {
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
-                    if i == self.studentArray.count - 1 {
-                        self.Successful.isHidden = false
+                    if i == self.studentArray.count - 1 { //checks to see if iteration has gone through the whole array
                         self.Subject.text = ""
                         self.Block.text = ""
                         self.Set.text = ""
-                        self.Code.text = ""
+                        self.Code.text = "" //resets all fields to blank
                     }
                     
                 }
             }
-        }*/
+        }
     }
     
 }

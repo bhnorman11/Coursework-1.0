@@ -31,14 +31,6 @@ class AnswerQuestionsViewController: UIViewController {
         }
     }
     
-    @IBOutlet var TimesButtons: [UIButton]!
-    
-    @IBOutlet weak var Today: UIButton!
-    @IBOutlet weak var Yesterday: UIButton!
-    @IBOutlet weak var ThisWeek: UIButton!
-    @IBOutlet weak var ThisMonth: UIButton!
-    @IBOutlet weak var ThisTerm: UIButton!
-    
     func DateToday() -> String{ // gets todays date and time
         let dateToday = "\(NSDate())"
         return dateToday
@@ -47,47 +39,6 @@ class AnswerQuestionsViewController: UIViewController {
     func DateYesterday() -> String { // gets yesterdays date and time
         let yesterday = "\(Calendar.current.date(byAdding: .day, value: -1, to: Date())!)"
         return yesterday
-        
-    }
-    
-    @IBAction func TodaySelection(_ sender: Any) {
-        Today.alpha = 1 // changes the alpha (transparency setting) when one of the options is selected
-        Yesterday.alpha = 0.3
-        ThisWeek.alpha = 0.3
-        ThisMonth.alpha = 0.3
-        ThisTerm.alpha = 0.3
-    }
-    
-    @IBAction func YesterdaySelection(_ sender: Any) {
-        Today.alpha = 0.3
-        Yesterday.alpha = 1
-        ThisWeek.alpha = 0.3
-        ThisMonth.alpha = 0.3
-        ThisTerm.alpha = 0.3
-    }
-    
-    @IBAction func ThisWeekSelection(_ sender: Any) {
-        Today.alpha = 0.3
-        Yesterday.alpha = 0.3
-        ThisWeek.alpha = 1
-        ThisMonth.alpha = 0.3
-        ThisTerm.alpha = 0.3
-    }
-    
-    @IBAction func ThisMonthSelection(_ sender: Any) {
-        Today.alpha = 0.3
-        Yesterday.alpha = 0.3
-        ThisWeek.alpha = 0.3
-        ThisMonth.alpha = 1
-        ThisTerm.alpha = 0.3
-    }
-    
-    @IBAction func ThisTermSelection(_ sender: Any) {
-        Today.alpha = 0.3
-        Yesterday.alpha = 0.3
-        ThisWeek.alpha = 0.3
-        ThisMonth.alpha = 0.3
-        ThisTerm.alpha = 1
     }
     
     @IBOutlet weak var QuestionOne: UITextField!
@@ -99,11 +50,11 @@ class AnswerQuestionsViewController: UIViewController {
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     
-    func EmptyField() -> Bool{
+    func EmptyField() -> Bool{ //Makes sure all fields are filled in
         if (QuestionOne.text == "") && (QuestionTwo.text == "") && (QuestionThree.text == "") {
             Successful.textColor = .red
             Successful.text = "Please fill in one or more answers."
-            Successful.isHidden = false
+            Successful.isHidden = false //Successful message becomes an error message
             return true
         }
         else {

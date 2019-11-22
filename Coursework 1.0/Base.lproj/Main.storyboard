@@ -1327,11 +1327,34 @@
                                 <rect key="frame" x="334" y="255" width="445" height="334"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="n95-d2-Lif" id="QZi-c1-C1q"/>
+                                    <outlet property="delegate" destination="n95-d2-Lif" id="x1i-bG-6IC"/>
+                                </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdP-VC-ha4">
+                                <rect key="frame" x="827" y="125" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="AddStudent:" destination="n95-d2-Lif" eventType="touchUpInside" id="7Pc-gZ-hmh"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msm-Df-0SV">
+                                <rect key="frame" x="924" y="203" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="M8Q-WD-NiQ"/>
                     </view>
+                    <connections>
+                        <outlet property="StudentEmail" destination="msm-Df-0SV" id="MQR-d3-oLP"/>
+                        <outlet property="studentTable" destination="PCm-05-7Ce" id="yve-6v-pIh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aT-Dh-XLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1808,10 +1831,10 @@
         <image name="Settings" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CjY-Pa-OIG"/>
+        <segue reference="fsD-dv-EmB"/>
         <segue reference="Luv-9s-Zsm"/>
         <segue reference="ZRE-Qk-8cQ"/>
-        <segue reference="ZQD-aE-LRs"/>
+        <segue reference="TuV-Da-coh"/>
         <segue reference="fzF-Dy-h9Q"/>
     </inferredMetricsTieBreakers>
 </document>
