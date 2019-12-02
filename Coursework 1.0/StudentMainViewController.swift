@@ -27,7 +27,7 @@ class StudentMainViewController: UIViewController {
     }
     
     @IBAction func Logout(_ sender: Any) {
-        performSegue(withIdentifier: "StudentLogout", sender: self)
+        performSegue(withIdentifier: "StudentLogout", sender: self) //segues back to main page
     }
     
     var effect:UIVisualEffect!
@@ -75,7 +75,7 @@ class StudentMainViewController: UIViewController {
     func animateInSettings () {
         self.view.addSubview(SettingsView) //adds a new subview
         SettingsView.center = self.view.center
-        SettingsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3) //applies the tranformation to the pop up setting
+        SettingsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)//applies the tranformation to pop up
         SettingsView.alpha = 0
         
         UIView.animate(withDuration: 0.4) { //fade duration of 0.4 seconds

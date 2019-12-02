@@ -37,6 +37,7 @@ class JoinClassViewController: UIViewController {
     @IBOutlet weak var PopUpSubjectLabel: UILabel!
     @IBOutlet weak var PopUpSet: UILabel!
     @IBOutlet weak var PopUpSetLabel: UILabel!
+    @IBOutlet weak var PopUpError: UILabel!
     
     func animateIn () {
         self.view.addSubview(PopUpView)
@@ -65,6 +66,18 @@ class JoinClassViewController: UIViewController {
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     
+    func noClassFound() {
+        self.NoClassFound.isHidden = false
+        self.PopUpTeacher.isHidden = true
+        self.PopUpTeacherLabel.isHidden = true
+        self.PopUpSet.isHidden = true
+        self.PopUpSetLabel.isHidden = true
+        self.PopUpSubject.isHidden = true
+        self.PopUpSubjectLabel.isHidden = true
+        self.PopUpYear.isHidden = true
+        self.PopUpYearLabel.isHidden = true
+    }
+    
     @IBAction func Continue(_ sender: Any) {
         if validateEntry() == true {
             animateIn()
@@ -88,15 +101,7 @@ class JoinClassViewController: UIViewController {
                 }
                 else{
                     print("Document does not exist in firestore")
-                    self.NoClassFound.isHidden = false
-                    self.PopUpTeacher.isHidden = true
-                    self.PopUpTeacherLabel.isHidden = true
-                    self.PopUpSet.isHidden = true
-                    self.PopUpSetLabel.isHidden = true
-                    self.PopUpSubject.isHidden = true
-                    self.PopUpSubjectLabel.isHidden = true
-                    self.PopUpYear.isHidden = true
-                    self.PopUpYearLabel.isHidden = true
+                    self.noClassFound()
                 }
             }
         }
@@ -108,23 +113,21 @@ class JoinClassViewController: UIViewController {
         self.VisualEffectView.isHidden = true
     }
     
+    
     @IBAction func JoinClass(_ sender: Any) {
-        db.collection("Codes").document(Code.text!).collection("Classes").document(Set.text!).collection("Students").document(studentArray[i]).setData([
-            "Email": email!
+        let email = user?.email //sets email address to logged in email
+        db.collection("Codes").document(Code.text!).collection("Students").document(email!).setData([
+            "Email": email! //creates a new document with the student email name under the entered code's document
             ])
         { err in
             if let err = err {
                 print("Error writing document: \(err)")
+                self.PopUpError.isHidden = false
             } else {
                 print("Document successfully written!")
-                if i == self.studentArray.count - 1 {
-                    self.Successful.isHidden = false
-                    self.Subject.text = ""
-                    self.Block.text = ""
-                    self.Set.text = ""
-                    self.Code.text = ""
-                }
-                
+                self.animateOut() //calls animateout when the class is successfully joined
+                self.VisualEffectView.isUserInteractionEnabled = false //stops interaction with the visual effect view
+                self.VisualEffectView.isHidden = true //hides visual effect view
             }
         }
     }

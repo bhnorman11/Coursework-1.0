@@ -14,21 +14,8 @@ class AnswerQuestionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        TimesButtons.forEach { (button) in
-            button.isHidden = !button.isHidden // hides all the different time buttons when view loads
-        }
         Successful.isHidden = true
 
-    }
-    
-    @IBAction func HandleSelection(_ sender: Any) { // used to display time period buttons in stack view with nice animation
-        TimesButtons.forEach { (button) in
-            UIView.animate(withDuration: 0.3, animations: {
-                button.isHidden = !button.isHidden
-                self.view.layoutIfNeeded()
-            })
-            
-        }
     }
     
     func DateToday() -> String{ // gets todays date and time
@@ -64,7 +51,7 @@ class AnswerQuestionsViewController: UIViewController {
     
     func checkSuggestionTooLong() -> Bool{
         var counter = 0
-        for character in QuestionOne.text!.characters {
+        for _ in QuestionOne.text! {
             counter += 1
         }
         if counter > 100 {

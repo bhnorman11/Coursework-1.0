@@ -10,9 +10,39 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-class CreateNewClassViewController: UIViewController  {
+class CreateNewClassViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return studentArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
+        cell.textLabel?.text = studentArray[indexPath.row]
+        return cell
+    }
+    
+    func updateStudents() {
+        db.collection("Codes").document(Code.text!).collection("Students").getDocuments() { (QuerySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            }
+            else {
+                self.studentArray = []
+                for document in QuerySnapshot!.documents {
+                    var studentEmail = (document.get("Email") as! String)
+                    self.studentArray.append(studentEmail)
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        
+    }
+    
+    @IBAction func refreshTable(_ sender: Any) {
+        updateStudents()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Error.isHidden = true
@@ -22,6 +52,7 @@ class CreateNewClassViewController: UIViewController  {
         VisualEffectView.isHidden = true
     }
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var VisualEffectView: UIVisualEffectView!
     @IBOutlet var PopUpView: UIView!
     @IBOutlet weak var Code: UILabel!
@@ -35,7 +66,6 @@ class CreateNewClassViewController: UIViewController  {
     @IBOutlet weak var PopUpSet: UILabel!
     @IBOutlet weak var PopUpSubject: UILabel!
     @IBOutlet weak var PopUpYear: UILabel!
-    @IBOutlet weak var PopUpStudents: UILabel!
     @IBOutlet weak var PopUpCode: UILabel!
     
     func animateIn () {
@@ -67,11 +97,6 @@ class CreateNewClassViewController: UIViewController  {
         VisualEffectView.isUserInteractionEnabled = false
         self.VisualEffectView.isHidden = true
     }
-    
-    var StudentEmail = ""
-    
-
-    
     
     @IBAction func GenerateCode(_ sender: Any) {
         let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -111,7 +136,7 @@ class CreateNewClassViewController: UIViewController  {
         
     }
     
-    func validContinue() -> Bool {
+    func validContinue() -> Bool { //checks if any fields are blank
         if Code.text == "" {
             return false
         }
@@ -125,6 +150,15 @@ class CreateNewClassViewController: UIViewController  {
             return false
         }
         else {
+            return true
+        }
+    }
+    
+    func validYear() -> Bool { //checks that only years of the correct form are entered
+        if (Block.text != "13") && (Block.text != "12") && (Block.text != "11") && (Block.text != "10") && (Block.text != "9") {
+            return false
+        }
+        else{
             return true
         }
     }

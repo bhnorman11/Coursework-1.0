@@ -12,9 +12,7 @@ class TeacherMainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         VisualEffectView.isHidden = true
-        
         SettingsView.layer.cornerRadius = 5
         LogoutView.layer.cornerRadius = 5
     }
@@ -22,7 +20,6 @@ class TeacherMainViewController: UIViewController {
     func animateInLogout () {
         self.view.addSubview(LogoutView)
         LogoutView.center = self.view.center
-        
         LogoutView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         LogoutView.alpha = 0
         
@@ -44,8 +41,8 @@ class TeacherMainViewController: UIViewController {
     }
     
     @IBAction func LogoutConfirmed(_ sender: Any) {
+        performSegue(withIdentifier: "Logout", sender: self)
     }
-    
     
     @IBAction func Logout(_ sender: Any) {
         animateInLogout()
@@ -57,14 +54,12 @@ class TeacherMainViewController: UIViewController {
     @IBAction func cancelLogout(_ sender: Any) {
         animateOutLogout()
         VisualEffectView.isUserInteractionEnabled = false
-        self.VisualEffectView.isHidden = false
+        self.VisualEffectView.isHidden = true
     }
-    
     
     func animateInSettings () {
         self.view.addSubview(SettingsView)
         SettingsView.center = self.view.center
-        
         SettingsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         SettingsView.alpha = 0
         
@@ -103,8 +98,6 @@ class TeacherMainViewController: UIViewController {
     @IBAction func goToSettings(_ sender: Any) {
         animateInSettings()
         VisualEffectView.isUserInteractionEnabled = true
-        
     }
-    
     
 }
