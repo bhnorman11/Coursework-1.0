@@ -101,7 +101,6 @@ class JoinClassViewController: UIViewController {
                     self.PopUpSubject.isHidden = false
                     self.PopUpSubjectLabel.isHidden = false
                     self.NoClassFound.isHidden = true
-                    self.NoClassFound.text = "Hmmmm"
                 }
                 else{
                     print("Document does not exist in firestore")
@@ -127,9 +126,11 @@ class JoinClassViewController: UIViewController {
                 self.PopUpError.isHidden = false
             } else {
                 print("Document successfully written!")
-                self.animateOut() //calls animateout when the class is successfully joined
+                //calls animateout when the class is successfully joined
                 self.Successful.isHidden = false
-                self.Error.isHidden = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    self.performSegue(withIdentifier: "ClassJoined", sender: self)
+                }
             }
         }
     }
@@ -138,7 +139,6 @@ class JoinClassViewController: UIViewController {
     func validateEntry() -> Bool{
         if Code.text!.count != 8 {
             Error.isHidden = false
-            Successful.isHidden = true
             return false
         }
         else{

@@ -266,13 +266,6 @@
                                 <color key="textColor" red="1" green="0.13297346739999999" blue="0.071512527940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Class joined!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HD7-kE-Xej">
-                                <rect key="frame" x="433" y="505" width="253" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="40"/>
-                                <color key="textColor" red="0.58076978030000004" green="0.11740905409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MhW-Gh-pch">
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -313,6 +306,7 @@
                         <outlet property="PopUpYearLabel" destination="blV-q7-9UB" id="qIp-H5-thD"/>
                         <outlet property="Successful" destination="HD7-kE-Xej" id="dcO-mk-Ocy"/>
                         <outlet property="VisualEffectView" destination="MhW-Gh-pch" id="CmN-Hp-qfc"/>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="ClassJoined" customClass="CustomSegue" customModule="Coursework_1_0" customModuleProvider="target" id="FFr-10-geB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCX-jN-7nV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -416,6 +410,13 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="35"/>
                             <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Class joined!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HD7-kE-Xej">
+                            <rect key="frame" x="224" y="302" width="253" height="73"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="40"/>
+                            <color key="textColor" red="0.58076978030000004" green="0.11740905409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -1819,6 +1820,6 @@
         <segue reference="tH4-cu-OsH"/>
         <segue reference="7KL-Zn-cPd"/>
         <segue reference="i8e-Wr-0Sr"/>
-        <segue reference="fzF-Dy-h9Q"/>
+        <segue reference="FFr-10-geB"/>
     </inferredMetricsTieBreakers>
 </document>

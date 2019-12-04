@@ -30,7 +30,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
             else {
                 self.studentArray = []
                 for document in QuerySnapshot!.documents {
-                    var studentEmail = (document.get("Email") as! String)
+                    let studentEmail = (document.get("Email") as! String)
                     self.studentArray.append(studentEmail)
                     self.tableView.reloadData()
                 }
@@ -125,7 +125,6 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
-                    
                 }
             }
         }
@@ -169,7 +168,8 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
             "Block": Block.text!,
             "Subject": Subject.text!,
             "Set": Set.text!,
-            "Active Set": true //determines if a set is still in use (will become false after a year)
+            "Active Set": true, //determines if a set is still in use
+            "Code": Code.text!
             ])
         { err in
             if let err = err {
