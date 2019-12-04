@@ -16,6 +16,7 @@ class JoinClassViewController: UIViewController {
         super.viewDidLoad()
         
         Error.isHidden = true
+        Successful.isHidden = true
         effect = VisualEffectView.effect
         VisualEffectView.effect = nil
         PopUpView.layer.cornerRadius = 5
@@ -29,6 +30,7 @@ class JoinClassViewController: UIViewController {
     var effect: UIVisualEffect!
     @IBOutlet weak var Code: UITextField!
     @IBOutlet weak var Error: UILabel!
+    @IBOutlet weak var Successful: UILabel!
     @IBOutlet weak var PopUpTeacher: UILabel!
     @IBOutlet weak var PopUpTeacherLabel: UILabel!
     @IBOutlet weak var PopUpYear: UILabel!
@@ -61,6 +63,8 @@ class JoinClassViewController: UIViewController {
         }) {(success:Bool) in
             self.PopUpView.removeFromSuperview()
         }
+        VisualEffectView.isUserInteractionEnabled = false
+        self.VisualEffectView.isHidden = true
     }
     
     let db = Firestore.firestore()
@@ -83,7 +87,7 @@ class JoinClassViewController: UIViewController {
             animateIn()
             let docRef = self.db.collection("Codes").document(Code.text!)
             docRef.getDocument(source: .cache) { (document, error) in
-                if let document = document{
+                if let document = document, document.exists {
                     self.PopUpTeacher.text = (document.get("Teacher email") as! String)
                     self.PopUpTeacher.isHidden = false
                     self.PopUpTeacherLabel.isHidden = false
@@ -97,7 +101,7 @@ class JoinClassViewController: UIViewController {
                     self.PopUpSubject.isHidden = false
                     self.PopUpSubjectLabel.isHidden = false
                     self.NoClassFound.isHidden = true
-                    
+                    self.NoClassFound.text = "Hmmmm"
                 }
                 else{
                     print("Document does not exist in firestore")
@@ -109,8 +113,6 @@ class JoinClassViewController: UIViewController {
 
     @IBAction func DismissPopUp(_ sender: Any) {
         animateOut()
-        VisualEffectView.isUserInteractionEnabled = false
-        self.VisualEffectView.isHidden = true
     }
     
     
@@ -126,8 +128,8 @@ class JoinClassViewController: UIViewController {
             } else {
                 print("Document successfully written!")
                 self.animateOut() //calls animateout when the class is successfully joined
-                self.VisualEffectView.isUserInteractionEnabled = false //stops interaction with the visual effect view
-                self.VisualEffectView.isHidden = true //hides visual effect view
+                self.Successful.isHidden = false
+                self.Error.isHidden = true
             }
         }
     }
@@ -136,6 +138,7 @@ class JoinClassViewController: UIViewController {
     func validateEntry() -> Bool{
         if Code.text!.count != 8 {
             Error.isHidden = false
+            Successful.isHidden = true
             return false
         }
         else{

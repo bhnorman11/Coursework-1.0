@@ -90,12 +90,12 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
         }) {(success:Bool) in
             self.PopUpView.removeFromSuperview()
         }
+        VisualEffectView.isUserInteractionEnabled = false
+        self.VisualEffectView.isHidden = true
     }
     
     @IBAction func DismissPopUp(_ sender: Any) {
         animateOut()
-        VisualEffectView.isUserInteractionEnabled = false
-        self.VisualEffectView.isHidden = true
     }
     
     @IBAction func GenerateCode(_ sender: Any) {
@@ -179,7 +179,6 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
                 
             }
         }
-        
         for i in 0...studentArray.count - 1 {
             db.collection("Users").document(email!).collection("Classes").document(Set.text!).collection("Students").document(studentArray[i]).setData([ //within this created class a collection of students is created
                 "Email": studentArray[i] //each student email is then added
@@ -199,6 +198,9 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
                 }
             }
         }
+        self.animateOut()
+        self.Error.text = "Class created!"
+        self.Error.textColor = .blue
     }
     
 }
