@@ -67,6 +67,8 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var PopUpSubject: UILabel!
     @IBOutlet weak var PopUpYear: UILabel!
     @IBOutlet weak var PopUpCode: UILabel!
+    @IBOutlet weak var PopUpError: UILabel!
+    @IBOutlet weak var PopUpSuccessful: UILabel!
     
     func animateIn () {
         self.view.addSubview(PopUpView)
@@ -163,44 +165,51 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     @IBAction func CreateClass(_ sender: Any) {
-        let email = user?.email
-        db.collection("Users").document(email!).collection("Classes").document(Set.text!).setData([ //creates a new set within the collection of classes, which is within the collection of users
-            "Block": Block.text!,
-            "Subject": Subject.text!,
-            "Set": Set.text!,
-            "Active Set": true, //determines if a set is still in use
-            "Code": Code.text!
-            ])
-        { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
-                
-            }
-        }
-        for i in 0...studentArray.count - 1 {
-            db.collection("Users").document(email!).collection("Classes").document(Set.text!).collection("Students").document(studentArray[i]).setData([ //within this created class a collection of students is created
-                "Email": studentArray[i] //each student email is then added
+        if studentArray.count != 0 {
+            let email = user?.email
+            db.collection("Users").document(email!).collection("Classes").document(Set.text!).setData([ //creates a new set within the collection of classes, which is within the collection of users
+                "Block": Block.text!,
+                "Subject": Subject.text!,
+                "Set": Set.text!,
+                "Active Set": true, //determines if a set is still in use
+                "Code": Code.text!
                 ])
             { err in
                 if let err = err {
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
-                    if i == self.studentArray.count - 1 { //checks to see if iteration has gone through the whole array
-                        self.Subject.text = ""
-                        self.Block.text = ""
-                        self.Set.text = ""
-                        self.Code.text = "" //resets all fields to blank
-                    }
                     
                 }
             }
+            for i in 0...studentArray.count - 1 {
+                db.collection("Users").document(email!).collection("Classes").document(Set.text!).collection("Students").document(studentArray[i]).setData([ //within this created class a collection of students is created
+                    "Email": studentArray[i] //each student email is then added
+                    ])
+                { err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                    } else {
+                        print("Document successfully written!")
+                        if i == self.studentArray.count - 1 { //checks to see if iteration has gone through the whole array
+                            self.Subject.text = ""
+                            self.Block.text = ""
+                            self.Set.text = ""
+                            self.Code.text = "" //resets all fields to blank
+                        }
+                        
+                    }
+                }
+            }
+            self.PopUpError.isHidden = true
+            self.PopUpSuccessful.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.animateOut()
+            }
         }
-        self.animateOut()
-        self.Error.text = "Class created!"
-        self.Error.textColor = .blue
+        else {
+            self.PopUpError.isHidden = false
+        }
     }
     
 }

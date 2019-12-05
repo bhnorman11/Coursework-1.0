@@ -40,6 +40,7 @@ class JoinClassViewController: UIViewController {
     @IBOutlet weak var PopUpSet: UILabel!
     @IBOutlet weak var PopUpSetLabel: UILabel!
     @IBOutlet weak var PopUpError: UILabel!
+    @IBOutlet weak var PopUpJoin: UIButton!
     
     func animateIn () {
         self.view.addSubview(PopUpView)
@@ -80,6 +81,7 @@ class JoinClassViewController: UIViewController {
         self.PopUpSubjectLabel.isHidden = true
         self.PopUpYear.isHidden = true
         self.PopUpYearLabel.isHidden = true
+        self.PopUpJoin.isHidden = true
     }
     
     @IBAction func Continue(_ sender: Any) {
@@ -101,6 +103,7 @@ class JoinClassViewController: UIViewController {
                     self.PopUpSubject.isHidden = false
                     self.PopUpSubjectLabel.isHidden = false
                     self.NoClassFound.isHidden = true
+                    self.PopUpJoin.isHidden = false
                 }
                 else{
                     print("Document does not exist in firestore")
@@ -114,7 +117,6 @@ class JoinClassViewController: UIViewController {
         animateOut()
     }
     
-    
     @IBAction func JoinClass(_ sender: Any) {
         let email = user?.email //sets email address to logged in email
         db.collection("Codes").document(Code.text!).collection("Students").document(email!).setData([
@@ -126,13 +128,16 @@ class JoinClassViewController: UIViewController {
                 self.PopUpError.isHidden = false
             } else {
                 print("Document successfully written!")
-                //calls animateout when the class is successfully joined
+                self.db.collection("Users").document(self.PopUpTeacher.text!).collection("Classes").document(self.PopUpSet.text!).collection("Students").document(email!).setData([
+                    "Email": email! //creates a new document with the student email name in the teacher class if the student is joining late
+                    ])
                 self.Successful.isHidden = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    self.performSegue(withIdentifier: "ClassJoined", sender: self)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    self.animateOut() //calls animateout when the class is successfully joined
                 }
             }
         }
+        
     }
     
     
