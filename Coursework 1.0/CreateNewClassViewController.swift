@@ -98,6 +98,13 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
     
     @IBAction func DismissPopUp(_ sender: Any) {
         animateOut()
+        db.collection("Codes").document(Code.text!).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
     }
     
     @IBAction func GenerateCode(_ sender: Any) {

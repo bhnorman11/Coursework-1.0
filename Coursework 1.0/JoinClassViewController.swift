@@ -140,7 +140,6 @@ class JoinClassViewController: UIViewController {
         
     }
     
-    
     func validateEntry() -> Bool{
         if Code.text!.count != 8 {
             Error.isHidden = false
