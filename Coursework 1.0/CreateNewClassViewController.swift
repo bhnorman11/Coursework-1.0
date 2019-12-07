@@ -36,7 +36,6 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
                 }
             }
         }
-        
     }
     
     @IBAction func refreshTable(_ sender: Any) {
@@ -108,22 +107,22 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     @IBAction func GenerateCode(_ sender: Any) {
-        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        Code.text = String((0..<8).map{ _ in characters.randomElement()! })
+        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" //all alphanumeric characters
+        Code.text = String((0..<8).map{ _ in characters.randomElement()!}) //creates a random string of length 8 by mapping the characters and selecting a random element of this 8 times.
     }
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     
     @IBAction func Continue(_ sender: Any) {
-        if validContinue() == true{
-            animateIn()
+        if validContinue() == true && validYear() == true {
+            animateIn() //performs pop up animation
             PopUpSubject.text = Subject.text
             PopUpSet.text = Set.text
             PopUpYear.text = Block.text
-            PopUpCode.text = Code.text
+            PopUpCode.text = Code.text //sets all the pop up labels to the typed in values in the view
             let email = user?.email
-            db.collection("Codes").document(Code.text!).setData([
+            db.collection("Codes").document(Code.text!).setData([ //creates a new document in the "Codes" collection in Firestore
                 "Block": Block.text!,
                 "Subject": Subject.text!,
                 "Set": Set.text!,
@@ -138,7 +137,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
             }
         }
         else {
-            Error.text = "Please fill in all information."
+            Error.text = "Please fill in all information." //if validContinue and validYear aren't met, display the error message
             Error.isHidden = false
         }
         
