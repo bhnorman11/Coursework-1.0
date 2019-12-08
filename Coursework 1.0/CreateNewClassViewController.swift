@@ -13,26 +13,26 @@ import FirebaseFirestore
 class CreateNewClassViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return studentArray.count
+        return studentArray.count //sets tableview's number of rows to the length of the studentArray
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = studentArray[indexPath.row]
+        cell.textLabel?.text = studentArray[indexPath.row] //creates a cell using each member of the studentArray
         return cell
     }
     
     func updateStudents() {
-        db.collection("Codes").document(Code.text!).collection("Students").getDocuments() { (QuerySnapshot, err) in
+        db.collection("Codes").document(Code.text!).collection("Students").getDocuments() { (QuerySnapshot, err) in //gets all documents in the Students collection of the created code
             if let err = err {
                 print("Error getting documents: \(err)")
             }
             else {
                 self.studentArray = []
-                for document in QuerySnapshot!.documents {
-                    let studentEmail = (document.get("Email") as! String)
+                for document in QuerySnapshot!.documents { //populates the student array by reading all student documents in Firestore
+                    let studentEmail = (document.get("Email") as! String) //gets the student email from the field in Firestore
                     self.studentArray.append(studentEmail)
-                    self.tableView.reloadData()
+                    self.tableView.reloadData() //updates the table view with the new student array
                 }
             }
         }

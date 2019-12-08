@@ -131,6 +131,10 @@ class JoinClassViewController: UIViewController {
                 self.db.collection("Users").document(self.PopUpTeacher.text!).collection("Classes").document(self.PopUpSet.text!).collection("Students").document(email!).setData([
                     "Email": email! //creates a new document with the student email name in the teacher class if the student is joining late
                     ])
+                self.db.collection("Users").document(email!).collection("Classes").document(self.PopUpSet.text!).setData([
+                    "Teacher email": self.PopUpTeacher.text!, //then creates the set in the student so it can be used to give feedback later
+                    "Subject": self.PopUpSubject.text!
+                    ])
                 self.Successful.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                     self.animateOut() //calls animateout when the class is successfully joined
