@@ -18,8 +18,6 @@ class ReportProblemViewController: UIViewController {
     }
     
     @IBOutlet weak var Successful: UILabel!
-    
-    
     @IBOutlet weak var Problem: UITextField!
     
     let user = Auth.auth().currentUser

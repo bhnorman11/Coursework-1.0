@@ -14,7 +14,6 @@ class JoinClassViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         Error.isHidden = true
         Successful.isHidden = true
         effect = VisualEffectView.effect
@@ -48,7 +47,6 @@ class JoinClassViewController: UIViewController {
         self.VisualEffectView.effect = nil
         PopUpView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         PopUpView.alpha = 0
-        
         UIView.animate(withDuration: 0.4) {
             self.VisualEffectView.isHidden = false
             self.PopUpView.alpha = 1
@@ -60,7 +58,6 @@ class JoinClassViewController: UIViewController {
         UIView.animate(withDuration: 0.3, animations: {
             self.PopUpView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.PopUpView.alpha = 0
-            
         }) {(success:Bool) in
             self.PopUpView.removeFromSuperview()
         }
@@ -71,7 +68,7 @@ class JoinClassViewController: UIViewController {
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     
-    func noClassFound() {
+    func noClassFound() { //hides all labels in the pop up and shows the error message
         self.NoClassFound.isHidden = false
         self.PopUpTeacher.isHidden = true
         self.PopUpTeacherLabel.isHidden = true
@@ -85,13 +82,13 @@ class JoinClassViewController: UIViewController {
     }
     
     @IBAction func Continue(_ sender: Any) {
-        if validateEntry() == true {
-            animateIn()
-            let docRef = self.db.collection("Codes").document(Code.text!)
+        if validateEntry() == true { //condition for checking the length of the typed in code
+            animateIn() //generates the pop up
+            let docRef = self.db.collection("Codes").document(Code.text!) //creates reference to the typed in code in Codes collection
             docRef.getDocument(source: .cache) { (document, error) in
-                if let document = document, document.exists {
-                    self.PopUpTeacher.text = (document.get("Teacher email") as! String)
-                    self.PopUpTeacher.isHidden = false
+                if let document = document{ //if the document matches a document in Firestore
+                    self.PopUpTeacher.text = (document.get("Teacher email") as! String) //set all labels to the information on the class
+                    self.PopUpTeacher.isHidden = false //display these labels
                     self.PopUpTeacherLabel.isHidden = false
                     self.PopUpYear.text = (document.get("Block") as! String)
                     self.PopUpYear.isHidden = false
@@ -102,12 +99,12 @@ class JoinClassViewController: UIViewController {
                     self.PopUpSubject.text = (document.get("Subject") as! String)
                     self.PopUpSubject.isHidden = false
                     self.PopUpSubjectLabel.isHidden = false
-                    self.NoClassFound.isHidden = true
-                    self.PopUpJoin.isHidden = false
+                    self.NoClassFound.isHidden = true //hide the error message
+                    self.PopUpJoin.isHidden = false //show the join button
                 }
-                else{
+                else{ //if there is no matching code in Firestore
                     print("Document does not exist in firestore")
-                    self.noClassFound()
+                    self.noClassFound() //function that hides everything and shows the error message (NoClassFound)
                 }
             }
         }
@@ -125,29 +122,29 @@ class JoinClassViewController: UIViewController {
         { err in
             if let err = err {
                 print("Error writing document: \(err)")
-                self.PopUpError.isHidden = false
+                self.PopUpError.isHidden = false //Displays error if the class is unsuccessfully joined
             } else {
                 print("Document successfully written!")
                 self.db.collection("Users").document(self.PopUpTeacher.text!).collection("Classes").document(self.PopUpSet.text!).collection("Students").document(email!).setData([
                     "Email": email! //creates a new document with the student email name in the teacher class if the student is joining late
                     ])
                 self.db.collection("Users").document(email!).collection("Classes").document(self.PopUpSet.text!).setData([
-                    "Teacher email": self.PopUpTeacher.text!, //then creates the set in the student so it can be used to give feedback later
-                    "Subject": self.PopUpSubject.text!
+                    "Set": self.PopUpSet.text!, //creates a new document with the student email name in the student class in case the student is joining late
+                    "Subject": self.PopUpSubject.text!,
+                    "Teacher Email": self.PopUpTeacher.text!
                     ])
                 self.Successful.isHidden = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    self.animateOut() //calls animateout when the class is successfully joined
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) { //delays animateOut
+                    self.animateOut() //calls animateOut when the class is successfully joined
                 }
             }
         }
-        
     }
     
     func validateEntry() -> Bool{
-        if Code.text!.count != 8 {
+        if Code.text!.count != 8 { //checks the length of the entered code is 8 characters
             Error.isHidden = false
-            return false
+            return false //if it's not, display the error
         }
         else{
             return true

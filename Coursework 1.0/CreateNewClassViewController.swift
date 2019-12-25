@@ -75,7 +75,6 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
         self.VisualEffectView.effect = nil
         PopUpView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         PopUpView.alpha = 0
-        
         UIView.animate(withDuration: 0.4) {
             self.VisualEffectView.isHidden = false
             self.PopUpView.alpha = 1
@@ -87,7 +86,6 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
         UIView.animate(withDuration: 0.3, animations: {
             self.PopUpView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.PopUpView.alpha = 0
-            
         }) {(success:Bool) in
             self.PopUpView.removeFromSuperview()
         }
@@ -97,7 +95,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
     
     @IBAction func DismissPopUp(_ sender: Any) {
         animateOut()
-        db.collection("Codes").document(Code.text!).delete() { err in
+        db.collection("Codes").document(Code.text!).delete() { err in //deletes the document from the Codes collection to save memory
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
@@ -122,7 +120,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
             PopUpYear.text = Block.text
             PopUpCode.text = Code.text //sets all the pop up labels to the typed in values in the view
             let email = user?.email
-            db.collection("Codes").document(Code.text!).setData([ //creates a new document in the "Codes" collection in Firestore
+            db.collection("Codes").document(Code.text!).collection("Classes").document(PopUpSet.text!).setData([ //creates a new document in the "Codes" collection in Firestore
                 "Block": Block.text!,
                 "Subject": Subject.text!,
                 "Set": Set.text!,
@@ -185,10 +183,14 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
-                    
                 }
             }
             for i in 0...studentArray.count - 1 {
+                db.collection("Users").document(studentArray[i]).collection("Classes").document(self.PopUpSet.text!).setData([
+                    "Teacher email": email!, //then creates the set in the student so it can be used to give feedback later by looping through all students in the array
+                    "Subject": self.PopUpSubject.text!,
+                    "Code": self.PopUpCode.text!
+                    ])
                 db.collection("Users").document(email!).collection("Classes").document(Set.text!).collection("Students").document(studentArray[i]).setData([ //within this created class a collection of students is created
                     "Email": studentArray[i] //each student email is then added
                     ])
@@ -197,19 +199,16 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
                         print("Error writing document: \(err)")
                     } else {
                         print("Document successfully written!")
-                        if i == self.studentArray.count - 1 { //checks to see if iteration has gone through the whole array
-                            self.Subject.text = ""
-                            self.Block.text = ""
-                            self.Set.text = ""
-                            self.Code.text = "" //resets all fields to blank
-                        }
-                        
                     }
                 }
             }
+            self.Subject.text = ""
+            self.Block.text = ""
+            self.Set.text = ""
+            self.Code.text = "" //resets all fields to blank
             self.PopUpError.isHidden = true
             self.PopUpSuccessful.isHidden = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) { //delays the animateOut animation by 2 seconds, gives enough time to display the successful message
                 self.animateOut()
             }
         }
@@ -217,5 +216,5 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
             self.PopUpError.isHidden = false
         }
     }
-    
+   
 }
