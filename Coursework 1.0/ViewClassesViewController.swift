@@ -18,7 +18,7 @@ class ViewClassesViewController: UIViewController, UIPickerViewDataSource, UIPic
     var sets = [String]()
     var new_sets = [String]()
    
-    func getSets() -> [String]{
+    func getSets() -> [String] {
         let email = user?.email
         db.collection("Users").document(email!).collection("Classes").whereField("Active Set", isEqualTo: true).getDocuments() { (querySnapshot, err) in
             if let err = err {

@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import Firebase
 
 class StudentMainViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         VisualEffectView.isHidden = true
-        
         SettingsView.layer.cornerRadius = 5
         LogoutView.layer.cornerRadius = 5
     }
+    
+    
+    
+    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func prepareforUnwind (segue: UIStoryboardSegue) {
     }
