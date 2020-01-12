@@ -12,9 +12,9 @@ import FirebaseFirestore
 
 class StudentNotificationViewController: UIViewController {
 
-    override func viewDidLoad() {
+    override func viewDidLoad() { //set labels to values passed in from student main through the prepare for segue
         super.viewDidLoad()
-        TeacherLabel.text = teacherEmail
+        TeacherLabel.text = teacherEmail //sets labels to passed in values from the student home page
         MessageLabel.text = message
         SetLabel.text = set
     }
@@ -29,6 +29,7 @@ class StudentNotificationViewController: UIViewController {
     @IBOutlet weak var MessageLabel: UILabel!
     @IBOutlet weak var ReplyText: UITextField!
     @IBOutlet weak var Successful: UILabel!
+    @IBOutlet weak var Error: UILabel!
     
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
@@ -39,8 +40,10 @@ class StudentNotificationViewController: UIViewController {
         return reference //returns a unique reference that can be used to store the document in firestore
     }
     
-    func emptyField() -> Bool {
-        if ReplyText.text == "" {
+    func emptyField() -> Bool { //presence check for the replyText
+        if ReplyText.text == "" { //if there is no text
+            Error.text = "Please write your reply."
+            Error.isHidden = false //reveal error message
             return true
         }
         else {
@@ -49,12 +52,12 @@ class StudentNotificationViewController: UIViewController {
     }
     
     @IBAction func Send(_ sender: Any) {
-        if emptyField() == false {
-            let email = user?.email
-            db.collection("Users").document(teacherEmail).collection("Classes").document(set).collection("Feedback").document(generateFeedbackReference()).setData([
-                "Message": ReplyText.text!,
-                "Student Email": email!,
-                "Message Type": messageType
+        if emptyField() == false { //if validation is passed
+            let email = user?.email //sets email to current users email
+            db.collection("Users").document(teacherEmail).collection("Classes").document(set).collection("Feedback").document(generateFeedbackReference()).setData([ //creates a new feedback document in the teacher's feedback class within the given set
+                "Message": ReplyText.text!, //teacher's feedback
+                "Student Email": email!, //tells the student which teacher is responding
+                "Message Type": messageType //tells the student what type of feedback their inital feedback was
                 ])
             { err in
                 if let err = err {

@@ -231,7 +231,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet var peopleButtons: [UIButton]!
     
-    @IBAction func handleSelection(_ sender: Any) {
+    @IBAction func handleSelection(_ sender: Any) { //handles animation for the selection of student or teacher on sign up
         peopleButtons.forEach { (button) in
             UIView.animate(withDuration: 0.3, animations: {
                 button.isHidden = !button.isHidden
@@ -243,17 +243,17 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var Student: UIButton!
     @IBOutlet weak var Teacher: UIButton!
     
-    @IBAction func StudentSelect(_ sender: Any) {
-        Teacher.alpha = 0.3
-        Student.alpha = 1.0
+    @IBAction func StudentSelect(_ sender: Any) { //if the user selects the student button
+        Teacher.alpha = 0.3 //lowers the teacher transparency
+        Student.alpha = 1.0 //raises the student transparency
         Block.isHidden = false
-        BlockLabel.isHidden = false
+        BlockLabel.isHidden = false //shows the year so that the student can input their year
     }
     @IBAction func TeacherSelect(_ sender: Any) {
         Student.alpha = 0.3
         Teacher.alpha = 1.0
         Block.isHidden = true
-        BlockLabel.isHidden = true
+        BlockLabel.isHidden = true //hides the year as the teacher has no need to input a year
     }
     
     

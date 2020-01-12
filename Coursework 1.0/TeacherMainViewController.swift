@@ -18,25 +18,24 @@ class TeacherMainViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        print(myIndex)
         cell.textLabel?.text = messageTypeArray[indexPath.row] //creates a cell using each member of the messageType
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        myIndex = indexPath.row
-        performSegue(withIdentifier: "NotificationSegue", sender: self)
+        myIndex = indexPath.row //index of the selected row
+        performSegue(withIdentifier: "NotificationSegue", sender: self) //segues to the notification view
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCell.EditingStyle.delete {
+        if editingStyle == UITableViewCell.EditingStyle.delete { //if the teacher swipes left and clicks the delete button on the cell
             let email = user?.email
-            db.collection("Users").document(email!).collection("Classes").document(setArray[myIndex]).collection("Feedback").document(messageReferenceArray[myIndex]).delete() { err in //deletes the document from the Codes collection to save memory
+            db.collection("Users").document(email!).collection("Classes").document(setArray[myIndex]).collection("Feedback").document(messageReferenceArray[myIndex]).delete() { err in //deletes the document from the feedback collection
                 if let err = err {
                     print("Error removing document: \(err)")
                 } else {
                     print("Document successfully removed!")
-                    self.messageTypeArray.remove(at: self.myIndex)
+                    self.messageTypeArray.remove(at: self.myIndex) //removes all data from arrays so that the tableView can be reloaded
                     self.messageArray.remove(at: self.myIndex)
                     self.messageReferenceArray.remove(at: self.myIndex)
                     self.setArray.remove(at: self.myIndex)
@@ -50,11 +49,7 @@ class TeacherMainViewController: UIViewController, UITableViewDataSource, UITabl
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     
-    @IBAction func Refresh(_ sender: Any) {
-        tableView.reloadData()
-    }
-    
-    func updateFeedback() {
+    func updateFeedback() { //populates all arrays with different fields read from Firestore in preparation to pass to the notification view
         self.messageArray = []
         self.messageTypeArray = []
         self.studentEmailArray = []
@@ -65,14 +60,14 @@ class TeacherMainViewController: UIViewController, UITableViewDataSource, UITabl
                 print("Error getting documents: \(err)")
             }
             else {
-                for document in QuerySnapshot!.documents {
+                for document in QuerySnapshot!.documents { //loops through all classes documents in Firestore
                     self.db.collection("Users").document(email!).collection("Classes").document(document.documentID).collection("Feedback").getDocuments() { (QuerySnapshot, err) in //gets all feedback in the set in the teacher's classes
                         let set = document.documentID
                         if let err = err {
                             print("Error getting documents: \(err)")
                         }
                         else {
-                            for document in QuerySnapshot!.documents { //populates the message and message type arrays by reading all documents in Firestore
+                            for document in QuerySnapshot!.documents { //loops through all feedback documents within each class
                                 let messageType = (document.get("Message Type") as! String) //gets the message type from the field in Firestore
                                 let message = (document.get("Message") as! String) //gets the message from the field in Firestore
                                 let studentEmail = (document.get("Student Email") as! String) //gets the student email from Firestore
@@ -82,10 +77,6 @@ class TeacherMainViewController: UIViewController, UITableViewDataSource, UITabl
                                 self.studentEmailArray.append(studentEmail)
                                 self.messageReferenceArray.append(messageReference)
                                 self.setArray.append(set)
-                                print(self.setArray)
-                                print(self.studentEmailArray)
-                                print(self.messageTypeArray)
-                                print(self.messageArray)
                                 DispatchQueue.main.async {
                                     self.tableView.reloadData() //updates the table view with the new message types
                                 }
@@ -97,10 +88,10 @@ class TeacherMainViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NotificationSegue" {
-            let notificationController = segue.destination as! TeacherNotificationViewController
-            notificationController.studentEmail = studentEmailArray[myIndex]
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //prepares for segue by setting values created in the notification view to the selected cells data using myIndex
+        if segue.identifier == "NotificationSegue" { //multiple segues are performed from this view, only sets the values if it is the notification segue
+            let notificationController = segue.destination as! TeacherNotificationViewController //sets the destination view controller
+            notificationController.studentEmail = studentEmailArray[myIndex] //sets values in the destination view controller to the values read from Firestore
             notificationController.message = messageArray[myIndex]
             notificationController.messageType = messageTypeArray[myIndex]
             notificationController.messageReference = messageReferenceArray[myIndex]
@@ -119,9 +110,6 @@ class TeacherMainViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         updateFeedback()
-        DispatchQueue.main.async {
-            self.tableView.reloadData() //updates the table view with the new message types
-        }
         VisualEffectView.isHidden = true
         SettingsView.layer.cornerRadius = 5
         LogoutView.layer.cornerRadius = 5

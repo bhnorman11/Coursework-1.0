@@ -38,7 +38,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
-    @IBAction func refreshTable(_ sender: Any) {
+    @IBAction func refreshTable(_ sender: Any) { //calls updateStudents function to refresh the students that have joined the class
         updateStudents()
     }
     
@@ -94,7 +94,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     @IBAction func DismissPopUp(_ sender: Any) {
-        animateOut()
+        animateOut() //returns back to the class view
         db.collection("Codes").document(Code.text!).delete() { err in //deletes the document from the Codes collection to save memory
             if let err = err {
                 print("Error removing document: \(err)")
@@ -104,7 +104,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
-    @IBAction func GenerateCode(_ sender: Any) {
+    @IBAction func GenerateCode(_ sender: Any) { //generates a class code of length 8
         let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" //all alphanumeric characters
         Code.text = String((0..<8).map{ _ in characters.randomElement()!}) //creates a random string of length 8 by mapping the characters and selecting a random element of this 8 times.
     }
@@ -208,7 +208,7 @@ class CreateNewClassViewController: UIViewController, UITableViewDataSource, UIT
             self.Code.text = "" //resets all fields to blank
             self.PopUpError.isHidden = true
             self.PopUpSuccessful.isHidden = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) { //delays the animateOut animation by 2 seconds, gives enough time to display the successful message
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) { //delays the animateOut animation by 1.4 seconds, gives enough time to display the successful message
                 self.animateOut()
             }
         }
